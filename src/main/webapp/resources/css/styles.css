@@ -37,6 +37,10 @@ div.header div.auth-block, div.header div.logo-caption {
     font-family: ProductSans;
 }
 
+div.header div.auth-block, div.header div.auth-block {
+    justify-content: flex-end;
+}
+
 div.header div.auth-block, div.header div.auth-block div.auth-buttons {
     display: flex;
 }

@@ -11,7 +11,7 @@ div.card-wrapper div.card {
     overflow: hidden;
 }
 
-div.card-wrapper div.card div.profile-header {
+div.card-wrapper div.card div.card-header {
     font-family: ProductSans;
     background-color: var(--header-background);
     color: var(--header-forecolor);

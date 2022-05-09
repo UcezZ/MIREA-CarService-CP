@@ -10,7 +10,7 @@ import net.sytes.ucezz.mirea.java.carservice.entity.ServiceCategory;
 
 @Repository
 public interface ServiceCategoryRepository extends CrudRepository<ServiceCategory, Long> {
-    @Query(value = "select * from S_ServiceCategory where username = ?1", nativeQuery = true)
+    @Query(value = "select * from S_ServiceCategory where id_service_category = ?1", nativeQuery = true)
     ServiceCategory get(int id);
 
     @Query(value = "select * from S_ServiceCategory", nativeQuery = true)

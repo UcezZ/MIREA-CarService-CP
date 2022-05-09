@@ -16,10 +16,10 @@
 <body>
     <%@ include file="header.jsp" %>
     <div class="main">
-        <div class="profile-wrapper">
-            <div class="profile-card">
-                <div class="profile-header">${user.getUsername()}</div>
-                <table class="profile-contents">
+        <div class="card-wrapper">
+            <div class="card">
+                <div class="card-header">${user.getUsername()}</div>
+                <table class="card-contents">
                     <tr>
                         <td>Идентификатор</td>
                         <td>${user.getId()}</td>

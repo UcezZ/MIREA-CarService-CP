@@ -1,0 +1,89 @@
+body {
+    margin: 0;
+}
+
+.verticalCentererWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+div.header {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--header-background);
+    color: var(--header-forecolor);
+    height: 48px;
+}
+
+div.header div.logoCaption span {
+    font-weight: 100;
+    font-size: 18pt;
+    margin: 8px;
+}
+
+div.header div.authBlock, div.header div.logoCaption, div.footer span.copyright {
+    font-family: ProductSans;
+}
+
+div.header div.authBlock {
+    display: flex;
+}
+
+div.header div.authBlock span.profile {
+    font-size: 20px;
+    margin: 4px;
+    cursor: default;
+}
+
+div.header div.authBlock div.profile-icon::before {
+    content: url('./../media/icons/profile-icon.svg');
+}
+
+div.header div.authBlock a {
+    text-decoration: none;
+    padding: 4px;
+    margin: 4px;
+    color: var(--header-background);
+    background-color: var(--header-forecolor);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s ease-out;
+    min-width: 80px;
+    text-align: center;
+    box-shadow: 1px 1px 2px 0 #0008;
+}
+
+div.header div.authBlock a:hover {
+    background-color: var(--auth-button-background-hover);
+}
+
+div.header div.authBlock a:active {
+    transform: translateX(1px) translateY(1px);
+    box-shadow: 0 0 2px 0 #0008;
+}
+
+div.footer {
+    display: flex;
+    height: 40px;
+    background-color: var(--footer-background);
+    color: var(--footer-color);
+    position: relative;
+}
+
+div.footer span.copyright {
+    padding: 4px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: 10pt;
+}
+
+:root {
+    --header-background: #08D;
+    --header-forecolor: #FFF;
+    --auth-button-background-hover: #BDF;
+
+    --footer-background: #CCC;
+    --footer-color: #246;
+}

@@ -19,26 +19,12 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_User")
     int id;
-
-    // @Column(name = "IsManager")
     Boolean isManager;
-
-    // @Column(name = "LastName")
     String lastName;
-
-    // @Column(name = "FirstName")
     String firstName;
-
-    // @Column(name = "MiddleName")
     String middleName;
-
-    // @Column(name = "Username")
     String username;
-
-    // @Column(name = "PasswordHashString")
     String passwordHashString;
-
-    // @Column(name = "BirthDate")
     String birthDate;
 
     public User() {
@@ -129,7 +115,7 @@ public class User {
     }
 
     public String getRole() {
-        return isManager ? "MANAGER" : "CLIENT";
+        return isManager ? getUsername() == "Admin" ? "ADMIN" : "MANAGER" : "CLIENT";
     }
 
     public void setRole(String role) {

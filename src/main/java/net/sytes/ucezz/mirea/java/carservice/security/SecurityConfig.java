@@ -17,7 +17,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private UserService userDetailsService;
 
     @Autowired
-    private CustomAuthencationProvider customAuthencationProvider;
+    private AuthencationProvider customAuthencationProvider;
 
     // @Bean
     // public PasswordEncoder passwordEncoder() {
@@ -34,8 +34,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/user/**").hasAnyRole("CLIENT", "MANAGER")
-                .antMatchers("/admin/**").hasRole("MANAGER")
+                .antMatchers("/client/**").hasAnyRole("CLIENT", "ADMIN")
+                .antMatchers("/manager/**").hasAnyRole("MANAGER", "ADMIN")
+                .antMatchers("/profile/**").hasAnyRole("CLIENT", "MANAGER", "ADMIN")
+                .antMatchers("/admin/**").hasRole("ADMIN")
                 .antMatchers("/**").permitAll()
                 .and().formLogin();
 

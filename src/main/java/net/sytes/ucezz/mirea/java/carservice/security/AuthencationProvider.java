@@ -17,14 +17,13 @@ import org.springframework.stereotype.Component;
 import net.sytes.ucezz.mirea.java.carservice.repository.UserRepository;
 
 @Component
-public class CustomAuthencationProvider implements AuthenticationProvider {
+public class AuthencationProvider implements AuthenticationProvider {
     @Autowired
     private UserRepository dao;
 
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
         String userName = authentication.getName();
-        // = authentication.getCredentials().toString();
         String passwordHash = new String();
 
         try {

@@ -12,11 +12,11 @@ import net.sytes.ucezz.mirea.java.carservice.repository.UserRepository;
 @Service
 public class UserService implements UserDetailsService {
     @Autowired
-    private UserRepository dao;
+    private UserRepository userRepository;
 
     @Override
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
-        net.sytes.ucezz.mirea.java.carservice.entity.User user = dao.findByUsername(userName);
+        net.sytes.ucezz.mirea.java.carservice.entity.User user = userRepository.get(userName);
         if (user == null) {
             throw new UsernameNotFoundException("Unknown user: " + userName);
         }

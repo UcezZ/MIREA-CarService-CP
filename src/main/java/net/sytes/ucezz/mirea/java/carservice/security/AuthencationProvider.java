@@ -19,7 +19,7 @@ import net.sytes.ucezz.mirea.java.carservice.repository.UserRepository;
 @Component
 public class AuthencationProvider implements AuthenticationProvider {
     @Autowired
-    private UserRepository dao;
+    private UserRepository userRepository;
 
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
@@ -35,7 +35,7 @@ public class AuthencationProvider implements AuthenticationProvider {
             e.printStackTrace(System.err);
         }
 
-        net.sytes.ucezz.mirea.java.carservice.entity.User user = dao.findByUsername(userName);
+        net.sytes.ucezz.mirea.java.carservice.entity.User user = userRepository.get(userName);
         if (user == null) {
             throw new BadCredentialsException("Unknown user " + userName);
         }

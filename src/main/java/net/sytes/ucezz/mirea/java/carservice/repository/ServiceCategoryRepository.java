@@ -14,5 +14,5 @@ public interface ServiceCategoryRepository extends CrudRepository<ServiceCategor
     ServiceCategory get(int id);
 
     @Query(value = "select * from S_ServiceCategory", nativeQuery = true)
-    List<ServiceCategory> getAllServiceCategories();
+    List<ServiceCategory> getAll();
 }

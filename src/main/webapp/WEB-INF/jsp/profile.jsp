@@ -6,44 +6,54 @@
 <html>
 
 <head>
-  <meta charset="UTF8">
-  <title>Автосервис uCarService</title>
-  <link rel="stylesheet" type="text/css" href="${contextPath}/resources/fonts/productsans.css">
-  <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/styles.css">
+    <meta charset="UTF8">
+    <title>Автосервис uCarService - Профиль</title>
+    <link rel="stylesheet" type="text/css" href="${contextPath}/resources/fonts/productsans.css">
+    <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/profile.css">
 </head>
 
 <body>
-<div class="header">
-  <div class="logo-caption vertical-centerer-wrapper">
-      <span>uCarService</span>
-  </div>
-  <div class="hdr-caption vertical-centerer-wrapper">
-    <span>Профиль</span>
-  </div>
-  <div class="auth-block">
-    <sec:authorize access="isAuthenticated()">
-    <div class="profile-icon vertical-centerer-wrapper"></div>
-    <div class="vertical-centerer-wrapper">
-      <span class="profile">${pageContext.request.userPrincipal.name}</span>
+    <%@ include file="header.jsp" %>
+    <div class="main">
+        <div class="profile-wrapper">
+            <div class="profile-card">
+                <div class="profile-header">${user.getUsername()}</div>
+                <table class="profile-contents">
+                    <tr>
+                        <td>Идентификатор</td>
+                        <td>${user.getId()}</td>
+                    </tr>
+                    <tr>
+                        <td>Фамилия</td>
+                        <td>${user.getLastName()}</td>
+                    </tr>
+                    <tr>
+                        <td>Имя</td>
+                        <td>${user.getFirstName()}</td>
+                    </tr>
+                    <tr>
+                        <td>Отчество</td>
+                        <td>${user.getMiddleName()}</td>
+                    </tr>
+                    <tr>
+                        <td>Дата рождения</td>
+                        <td>${user.getBirthDate()}</td>
+                    </tr>
+                    <tr>
+                        <td>Роль</td>
+                        <td>${user.getRole()}</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="/transport">
+                                Транспортные<br>средства
+                            </a>
+                        </td>
+                        <td>${transportCount}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
     </div>
-    <div class="vertical-centerer-wrapper">
-      <a href="/logout">Выйти</a>
-    </div>
-    </sec:authorize>
-    <sec:authorize access="!isAuthenticated()">
-    <div class="vertical-centerer-wrapper">
-      <a href="/login">Войти</a>
-    </div>
-    <div class="vertical-centerer-wrapper">
-      <a href="/register">Регистрация</a>
-    </div>
-    </sec:authorize>
-    </div>
-  </div>
-  <div class="main">
-    <div class=
-  </div>
-  <div class="footer">
-    <span class="copyright">Copyright UcezZ Co. 2022</span>
-  </div>
 </body>

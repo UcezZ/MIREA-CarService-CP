@@ -17,7 +17,4 @@
     <div class="main">
         <p></p>
     </div>
-    <div class="footer">
-        <span class="copyright">Copyright UcezZ Co. 2022</span>
-    </div>
 </body>

@@ -115,7 +115,7 @@ public class User {
     }
 
     public String getRole() {
-        return isManager ? getUsername() == "Admin" ? "ADMIN" : "MANAGER" : "CLIENT";
+        return isManager ? getUsername().equalsIgnoreCase("Admin") ? "ADMIN" : "MANAGER" : "CLIENT";
     }
 
     public void setRole(String role) {

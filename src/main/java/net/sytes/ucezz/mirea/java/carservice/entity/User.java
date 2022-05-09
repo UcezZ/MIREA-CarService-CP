@@ -20,25 +20,25 @@ public class User {
     @Column(name = "ID_User")
     int id;
 
-    @Column(name = "IsManager")
+    // @Column(name = "IsManager")
     Boolean isManager;
 
-    @Column(name = "LastName")
+    // @Column(name = "LastName")
     String lastName;
 
-    @Column(name = "FirstName")
+    // @Column(name = "FirstName")
     String firstName;
 
-    @Column(name = "MiddleName")
+    // @Column(name = "MiddleName")
     String middleName;
 
-    @Column(name = "Username")
+    // @Column(name = "Username")
     String username;
 
-    @Column(name = "PasswordHashString")
+    // @Column(name = "PasswordHashString")
     String passwordHashString;
 
-    @Column(name = "BirthDate")
+    // @Column(name = "BirthDate")
     String birthDate;
 
     public User() {
@@ -128,4 +128,11 @@ public class User {
         this.username = username;
     }
 
+    public String getRole() {
+        return isManager ? "MANAGER" : "CLIENT";
+    }
+
+    public void setRole(String role) {
+        isManager = role == "MANAGER";
+    }
 }

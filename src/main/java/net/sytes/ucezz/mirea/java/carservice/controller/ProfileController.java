@@ -25,6 +25,8 @@ public class ProfileController {
         int transportCount = transportRepository.getCountByUserId(user.getId());
         model.addAttribute("user", user);
         model.addAttribute("transportCount", transportCount);
+        model.addAttribute("headerDefined", true);
+        model.addAttribute("headerCaption", "Профиль");
         return "profile";
     }
 }

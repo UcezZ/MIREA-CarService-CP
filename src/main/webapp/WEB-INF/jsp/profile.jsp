@@ -10,7 +10,7 @@
     <title>Автосервис uCarService - Профиль</title>
     <link rel="stylesheet" type="text/css" href="${contextPath}/resources/fonts/productsans.css">
     <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/styles.css">
-    <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/profile.css">
+    <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/card.css">
 </head>
 
 <body>
@@ -47,7 +47,7 @@
                     <tr>
                         <td>
                             <a href="/transport">
-                                Транспортные<br>средства
+                                Транспортные средства
                             </a>
                         </td>
                         <td>${transportCount}</td>

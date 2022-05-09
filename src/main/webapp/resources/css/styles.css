@@ -22,7 +22,18 @@ div.header div.logo-caption span {
     margin: 8px;
 }
 
-div.header div.auth-block, div.header div.logo-caption, span.copyright {
+div.logo-caption, div.header-caption, div.auth-block {
+    flex: 1;
+}
+
+div.header-caption {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 24pt;
+    flex: 1;
+    text-align: center;
+}
+
+div.header div.auth-block, div.header div.logo-caption {
     font-family: ProductSans;
 }
 

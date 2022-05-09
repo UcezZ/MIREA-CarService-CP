@@ -1,9 +1,9 @@
-div.profile-wrapper {
+div.card-wrapper {
     display: flex;
     justify-content: space-around;
 }
 
-div.profile-wrapper div.profile-card {
+div.card-wrapper div.card {
     border-radius: 8px;
     box-shadow: 1px 1px 4px 2px #0008;
     border-color: var(--header-background);
@@ -11,40 +11,45 @@ div.profile-wrapper div.profile-card {
     overflow: hidden;
 }
 
-div.profile-wrapper div.profile-card div.profile-header {
+div.card-wrapper div.card div.profile-header {
     font-family: ProductSans;
     background-color: var(--header-background);
     color: var(--header-forecolor);
-    border-bottom-color: var(--profile-card-border-color);
+    border-bottom-color: var(--card-border-color);
     border-bottom-style: double;
     font-size: 24pt;
     padding: 8px;
     text-align: center;
 }
 
-div.profile-wrapper div.profile-card table.profile-contents {
+div.card-wrapper div.card table.card-contents {
     border-collapse: collapse;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    cursor: default;
 }
 
-div.profile-wrapper div.profile-card table.profile-contents tr td {
+div.card-wrapper div.card table.card-contents tr td {
     padding: 8px;
 }
 
-div.profile-wrapper div.profile-card table.profile-contents tr td:first-child {
+div.card-wrapper div.card table.card-contents tr td a {
+    color: inherit;
+}
+
+div.card-wrapper div.card table.card-contents tr td:first-child {
     text-align: right;
-    border-right-color: var(--profile-card-border-color);
+    border-right-color: var(--card-border-color);
     border-right-width: 1px;
     border-right-style: solid;
-    color: var(--profile-card-param-color);
+    color: var(--card-param-color);
     font-weight: bold;
 }
 
-div.profile-wrapper div.profile-card table.profile-contents tr td:nth-child(2) {
+div.card-wrapper div.card table.card-contents tr td:nth-child(2) {
     text-align: left;
 }
 
 :root {
-    --profile-card-border-color: #CCC;
-    --profile-card-param-color: #246;
+    --card-border-color: #CCC;
+    --card-param-color: #246;
 }

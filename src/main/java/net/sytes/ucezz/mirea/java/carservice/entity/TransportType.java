@@ -14,7 +14,7 @@ import javax.transaction.Transactional;
 public class TransportType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_dransport_type")
+    @Column(name = "id_transport_type")
     int id;
     String caption;
 

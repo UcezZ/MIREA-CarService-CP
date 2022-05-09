@@ -7,7 +7,7 @@
 		<version>2.6.7</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>net.ucezz.mirea.java</groupId>
+	<groupId>net.sytes.ucezz.mirea.java</groupId>
 	<artifactId>carservice</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>carservice</name>
@@ -61,7 +61,7 @@
 			<version>2.4.4</version>
 			<scope>provided</scope>
 		</dependency>
-		<!--dependency>
+		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-core</artifactId>
 			<version>5.6.3</version>
@@ -75,7 +75,7 @@
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-config</artifactId>
 			<version>5.6.3</version>
-		</dependency -->
+		</dependency>
 
 	</dependencies>
 

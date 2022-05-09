@@ -1,10 +1,10 @@
-package net.ucezz.mirea.java.carservice;
+package net.sytes.ucezz.mirea.java.carservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CarserviceApplicationTests {
+class CarServiceApplicationTests {
 
 	@Test
 	void contextLoads() {

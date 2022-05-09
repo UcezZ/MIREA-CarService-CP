@@ -6,9 +6,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import net.sytes.ucezz.mirea.java.carservice.entity.TransportType;
+import net.sytes.ucezz.mirea.java.carservice.entity.ServiceCategory;
 import net.sytes.ucezz.mirea.java.carservice.entity.Transport;
 import net.sytes.ucezz.mirea.java.carservice.entity.User;
 import net.sytes.ucezz.mirea.java.carservice.repository.TransportTypeRepository;
+import net.sytes.ucezz.mirea.java.carservice.repository.ServiceCategoryRepository;
 import net.sytes.ucezz.mirea.java.carservice.repository.TransportRepository;
 import net.sytes.ucezz.mirea.java.carservice.repository.UserRepository;
 
@@ -24,10 +26,13 @@ public class TestController {
     UserRepository userRepository;
 
     @Autowired
-    TransportTypeRepository serviceCategoryRepository;
+    ServiceCategoryRepository serviceCategoryRepository;
 
     @Autowired
     TransportRepository transportRepository;
+
+    @Autowired
+    TransportTypeRepository transportTypeRepository;
 
     @GetMapping("/test")
     @ResponseBody
@@ -37,11 +42,15 @@ public class TestController {
         for (User o : userRepository.getAll())
             res += "<p>" + o + "</p>";
 
-        for (TransportType o : serviceCategoryRepository.getAll())
+        for (ServiceCategory o : serviceCategoryRepository.getAll())
             res += "<p>" + o + "</p>";
 
         for (Transport o : transportRepository.getAll())
             res += "<p>" + o + "</p>";
+
+        for (TransportType o : transportTypeRepository.getAll())
+            res += "<p>" + o + "</p>";
+
         return res;
     }
 }

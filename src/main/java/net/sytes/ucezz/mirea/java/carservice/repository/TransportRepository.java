@@ -14,7 +14,7 @@ public interface TransportRepository extends CrudRepository<Transport, Long> {
     Transport get(int id);
 
     @Query(value = "select * from t_transport where id_user = ?1", nativeQuery = true)
-    Transport getAllByUserId(int id);
+    List<Transport> getAllByUserId(int id);
 
     @Query(value = "select * from t_transport where id_transport_type = ?1", nativeQuery = true)
     Transport getAllByTransportTypeId(int id);

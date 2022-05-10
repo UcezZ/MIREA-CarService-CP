@@ -3,6 +3,10 @@ div.card-wrapper {
     justify-content: space-around;
 }
 
+div.card-wrapper.flex-wrap {
+    flex-wrap: wrap;
+}
+
 div.card-wrapper div.card {
     border-radius: 8px;
     box-shadow: 1px 1px 4px 2px #0008;

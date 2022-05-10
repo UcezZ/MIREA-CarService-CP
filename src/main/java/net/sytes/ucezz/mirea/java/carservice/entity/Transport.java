@@ -22,17 +22,15 @@ public class Transport {
     String brand;
     String model;
     String regNumber;
-    String vin;
 
     @Override
     public String toString() {
-        return String.format("%d: Of user #%d, type #%d, %s %s, %s, %s, %d",
+        return String.format("%d: Of user #%d, type #%d, %s %s, %s, %d",
                 getId(),
                 getIdUser(),
                 getIdTransportType(),
                 getBrand(),
                 getModel(),
-                getVin(),
                 getRegNumber(),
                 getReleaseYear());
     }
@@ -91,13 +89,5 @@ public class Transport {
 
     public void setReleaseYear(int releaseYear) {
         this.releaseYear = releaseYear;
-    }
-
-    public String getVin() {
-        return vin;
-    }
-
-    public void setVin(String vin) {
-        this.vin = vin;
     }
 }

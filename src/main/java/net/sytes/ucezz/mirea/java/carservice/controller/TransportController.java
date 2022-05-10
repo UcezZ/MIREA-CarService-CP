@@ -27,6 +27,8 @@ public class TransportController {
         User user = userRepository.get(username);
         List<Transport> allTransport = transportRepository.getAllByUserId(user.getId());
         model.addAttribute("allTransport", allTransport);
+        model.addAttribute("headerDefined", true);
+        model.addAttribute("headerCaption", "Мой транспорт");
         return "transport";
     }
 }

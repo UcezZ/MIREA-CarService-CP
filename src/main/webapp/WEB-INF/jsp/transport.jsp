@@ -8,7 +8,7 @@
 
 <head>
     <meta charset="UTF8">
-    <title>Автосервис uCarService - Профиль</title>
+    <title>Автосервис uCarService - Транспорт</title>
     <link rel="stylesheet" type="text/css" href="${contextPath}/resources/fonts/productsans.css">
     <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/styles.css">
     <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/card.css">
@@ -20,15 +20,11 @@
         <div class="card-wrapper flex-wrap">
             <c:forEach items="${allTransport}" var="transport">
                 <div class="card">
-                    <div class="card-header">${transport.getVin()}</div>
+                    <div class="card-header">${transport.getBrand()} ${transport.getModel()}</div>
                     <table class="card-contents">
                         <tr>
                             <td>Идентификатор</td>
                             <td>${transport.getId()}</td>
-                        </tr>
-                        <tr>
-                            <td>VIN</td>
-                            <td>${transport.getVin()}</td>
                         </tr>
                         <tr>
                             <td>Тип транспорта</td>
@@ -45,8 +41,7 @@
                         <tr>
                             <td>Регистрационный номер</td>
                             <td>
-                                ${fn:substring(transport.getRegNumber(), 0, 6)}
-                                <sup>${fn:substring(transport.getRegNumber(), 6)}</sup>
+                                ${fn:substring(transport.getRegNumber(), 0, 6)}<sup>${fn:substring(transport.getRegNumber(), 6, -1)}</sup>
                             </td>
                         </tr>
                         <tr>

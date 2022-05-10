@@ -1,0 +1,104 @@
+div.card-wrapper div.card form table.card-contents {
+    border-bottom-color: var(--card-border-color);
+    border-bottom-style: double;
+}
+
+div.card-wrapper div.card form {
+    margin: 0;
+    padding: 0;
+}
+
+div.card-wrapper div.card form table.card-contents input {
+    width: 240px;
+    font-size: inherit;
+    font-family: inherit;
+    border: none;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: var(--card-border-color);
+    border-radius: 8px;
+    padding: 2px 6px;
+}
+
+div.card-wrapper div.card form div.submit-wrapper {
+    display: flex;
+}
+
+div.card-wrapper div.card div.card-contents {
+    display: flex;
+    flex-direction: column;
+}
+
+div.card-wrapper div.card form div.submit-wrapper button,
+div.card-wrapper div.card div.card-contents a {
+    background-color: var(--header-background);
+    color: var(--header-forecolor);
+    font-family: ProductSans;
+    border: none;
+    font-size: 20pt;
+    border-radius: 8px;
+    padding: 8px;
+    margin: 8px;
+    flex: 1;
+    transition: 0.3s ease-out;
+    cursor: pointer;
+    box-shadow: 1px 1px 2px 0 var(--shadow-color);
+}
+
+div.card-wrapper div.card div.card-contents a {
+    text-decoration: none;
+}
+
+div.card-wrapper div.card form div.submit-wrapper button:hover,
+div.card-wrapper div.card div.card-contents a:hover {
+    text-shadow: 1px 1px 2px var(--shadow-color);
+    color: var(--profile-hover-color);
+}
+
+div.card-wrapper div.card form div.submit-wrapper button:active,
+div.card-wrapper div.card div.card-contents a:active {
+    transform: translateX(1px) translateY(1px);
+    text-shadow: 0 0 2px 0 var(--shadow-color);
+    transform: translateX(1px) translateY(1px);
+    box-shadow: 0 0 2px 0 var(--shadow-color);
+}
+
+div.card-wrapper div.card form table.card-contents input:invalid::after {
+    content: '✖';
+    padding-left: 5px;
+}
+
+div.card-wrapper div.card form table.card-contents input:valid::after {
+    content: '✓';
+    padding-left: 5px;
+}
+
+div.card-wrapper.error div.card {
+    border-color: var(--card-border-error);
+}
+
+div.card-wrapper.error div.card div.card-header {
+    background-color: var(--card-header-error);
+    border-bottom-color: var(--card-border-error);
+}
+
+div.card-wrapper.success div.card {
+    border-color: var(--card-border-success);
+}
+
+div.card-wrapper.success div.card div.card-header {
+    background-color: var(--card-header-success);
+    border-bottom-color: var(--card-border-success);
+}
+
+div.card-wrapper div.card-contents {
+    padding: 8px;
+    text-align: center;
+}
+
+:root {
+    --card-header-error: #D40;
+    --card-border-error: #FCC;
+    --card-header-success: #2C0;
+    --card-border-success: #9C9;
+}

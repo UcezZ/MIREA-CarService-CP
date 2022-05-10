@@ -28,6 +28,9 @@ public class User {
     String birthDate;
 
     public User() {
+        isManager = false;
+        id = 0;
+        lastName = firstName = middleName = username = passwordHashString = birthDate = "";
     }
 
     public User(String username, String passwordHashString) {
@@ -45,7 +48,7 @@ public class User {
                 getBirthDate(),
                 getUsername(),
                 getPasswordHashString(),
-                getIsManager() ? "Сотрудник" : "Клиент");
+                getRole());
     }
 
     public String getBirthDate() {
@@ -80,45 +83,54 @@ public class User {
         return username;
     }
 
-    public void setBirthDate(String birthDate) {
+    public User setBirthDate(String birthDate) {
         this.birthDate = birthDate;
+        return this;
     }
 
-    public void setFirstName(String firstName) {
+    public User setFirstName(String firstName) {
         this.firstName = firstName;
+        return this;
     }
 
-    public void setId(int id) {
+    public User setId(int id) {
         this.id = id;
+        return this;
     }
 
-    public void setIsManager(Boolean isManager) {
+    public User setIsManager(Boolean isManager) {
         this.isManager = isManager;
+        return this;
     }
 
-    public void setLastName(String lastName) {
+    public User setLastName(String lastName) {
         this.lastName = lastName;
+        return this;
     }
 
-    public void setMiddleName(String middleName) {
+    public User setMiddleName(String middleName) {
         this.middleName = middleName;
+        return this;
     }
 
-    public void setPassword(String password) throws NoSuchAlgorithmException {
+    public User setPassword(String password) throws NoSuchAlgorithmException {
         MessageDigest messageDigest = MessageDigest.getInstance("MD5");
         messageDigest.update(password.getBytes());
         passwordHashString = new String(messageDigest.digest());
+        return this;
     }
 
-    public void setUsername(String username) {
+    public User setUsername(String username) {
         this.username = username;
+        return this;
     }
 
     public String getRole() {
         return isManager ? getUsername().equalsIgnoreCase("Admin") ? "ADMIN" : "MANAGER" : "CLIENT";
     }
 
-    public void setRole(String role) {
-        isManager = role == "MANAGER";
+    public User setRole(String role) {
+        setIsManager(role == "MANAGER");
+        return this;
     }
 }

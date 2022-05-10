@@ -1,6 +1,6 @@
 package net.sytes.ucezz.mirea.java.carservice.controller;
 
-import java.util.Set;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -25,7 +25,7 @@ public class TransportController {
     public String transport(Model model) {
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
         User user = userRepository.get(username);
-        Set<Transport> allTransport = transportRepository.getAllByUserId(user.getId());
+        List<Transport> allTransport = transportRepository.getAllByUserId(user.getId());
         model.addAttribute("allTransport", allTransport);
         return "transport";
     }

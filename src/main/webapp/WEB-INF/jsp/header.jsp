@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %> 
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <div class="header">
     <div class="logo-caption vertical-centerer-wrapper">
@@ -23,9 +24,11 @@
                 <div class="vertical-centerer-wrapper">
                     <a href="/login">Войти</a>
                 </div>
-                <div class="vertical-centerer-wrapper">
-                    <a href="/register">Регистрация</a>
-                </div>
+                <c:if test="${not fn:contains(pageContext.request.requestURI, '/register')}">
+                    <div class="vertical-centerer-wrapper">
+                        <a href="/register">Регистрация</a>
+                    </div>
+                </c:if>
             </sec:authorize>
             <sec:authorize access="isAuthenticated()">
                 <div class="vertical-centerer-wrapper">

@@ -34,6 +34,7 @@
                             <c:when test="${errorCode == 4}">Указанное имя пользователя уже занято!</c:when>
                             <c:when test="${errorCode == 5}">Пароль не указан!</c:when>
                             <c:when test="${errorCode == 6}">Введённые пароли не совпадают!</c:when>
+                            <c:when test="${errorCode == 7}">Логин и пароль не должны совпадать!</c:when>
                             <c:otherwise>undefined</c:otherwise>
                         </c:choose>
                     </div>
@@ -60,7 +61,7 @@
                             </tr>
                             <tr>
                                 <td>Дата рождения</td>
-                                <td><input type="date" name="birthDate" value="${user.getBirthDate()}"/></td>
+                                <td><input type="date" name="birthDate" min="1900-01-01" max="${maxDate}" value="${user.getBirthDate()}"/></td>
                             </tr>
                             <tr>
                                 <td>Логин</td>

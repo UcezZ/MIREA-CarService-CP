@@ -1,10 +1,8 @@
 package net.sytes.ucezz.mirea.java.carservice.controller;
 
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
+import java.time.LocalDate;
 
-import org.hibernate.type.CalendarDateType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,6 +24,7 @@ public class RegisterController {
     public String registerGet(WebRequest request, Model model) {
         model.addAttribute("user", new User());
         model.addAttribute("errorCode", -1);
+        model.addAttribute("maxDate", LocalDate.now().minusYears(16).toString());
         return "register";
     }
 
@@ -64,6 +63,9 @@ public class RegisterController {
         if (errorCode == 0 && !password.equals(passwordConfirm)) {
             errorCode = 6;
         }
+        if (errorCode == 0 && !password.equalsIgnoreCase(username)) {
+            errorCode = 7;
+        }
         model.addAttribute("errorCode", errorCode);
         model.addAttribute("user",
                 new User()
@@ -72,6 +74,7 @@ public class RegisterController {
                         .setLastName(lastName)
                         .setMiddleName(middleName)
                         .setUsername(username));
+        model.addAttribute("maxDate", LocalDate.now().minusYears(16).toString());
         return "register";
     }
 }

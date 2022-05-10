@@ -43,7 +43,10 @@
                         </tr>
                         <tr>
                             <td>Регистрационный номер</td>
-                            <td>${transport.getRegNumber().subString((int)0, (int)6)}<sup>${transport.getRegNumber().subString((int)6)}</sup></td>
+                            <td>
+                                ${transport.getRegNumber().subString((Integer)0, (Integer)6)}
+                                <sup>${transport.getRegNumber().subString((Integer)6)}</sup>
+                            </td>
                         </tr>
                         <tr>
                             <td>Год выпуска</td>

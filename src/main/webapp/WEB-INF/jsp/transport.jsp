@@ -55,7 +55,7 @@
                     </table>
                 </div>
             </c:forEach>
-            <c:if test="${allTransport.length() == 0}">
+            <c:if test="${allTransport.size() == 0}">
                 <div class="card-wrapper error">
                     <div class="card">
                         <div class="card-header">Нет транспорта!</div>

@@ -45,7 +45,7 @@
         <c:if test="${errorCode != 0}">
             <div class="card-wrapper">
                 <div class="card">
-                    <div class="card-header">Новый клиент</div>
+                    <div class="card-header">Регистрация клиента</div>
                     <form action="" method="POST" enctype="utf8">
                         <table class="card-contents">
                             <tr>

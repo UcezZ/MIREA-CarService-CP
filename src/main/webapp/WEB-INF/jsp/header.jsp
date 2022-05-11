@@ -21,9 +21,11 @@
         </sec:authorize>
         <div class="auth-buttons">
             <sec:authorize access="!isAuthenticated()">
-                <div class="vertical-centerer-wrapper">
-                    <a href="/login">Войти</a>
-                </div>
+                <c:if test="${not fn:contains(pageContext.request.requestURI, '/login')}">
+                    <div class="vertical-centerer-wrapper">
+                        <a href="/login">Войти</a>
+                    </div>
+                </c:if>
                 <c:if test="${not fn:contains(pageContext.request.requestURI, '/register')}">
                     <div class="vertical-centerer-wrapper">
                         <a href="/register">Регистрация</a>

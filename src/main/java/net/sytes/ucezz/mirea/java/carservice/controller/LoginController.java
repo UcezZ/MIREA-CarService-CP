@@ -1,5 +1,10 @@
 package net.sytes.ucezz.mirea.java.carservice.controller;
 
+import java.security.MessageDigest;
+import java.util.Set;
+
+import javax.xml.bind.DatatypeConverter;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,23 +17,15 @@ import net.sytes.ucezz.mirea.java.carservice.entity.User;
 import net.sytes.ucezz.mirea.java.carservice.repository.UserRepository;
 
 @Controller
-@RequestMapping("/loggin")
+@RequestMapping("/login")
 public class LoginController {
     @Autowired
     UserRepository userRepository;
 
     @RequestMapping(method = RequestMethod.GET)
-    public String registerGet(WebRequest request, Model model) {
-        model.addAttribute("errorCode", -1);
+    public String login(WebRequest request, Model model) {
+        Set<String> params = request.getParameterMap().keySet();
+        model.addAttribute("errorCode", params.contains("error") ? 1 : 0);
         return "login";
-    }
-
-    @RequestMapping(method = RequestMethod.POST)
-    public String registerPost(WebRequest request, Model model,
-            @RequestParam(value = "username", defaultValue = "") String username,
-            @RequestParam(value = "password", defaultValue = "") String password) {
-
-        model.addAttribute("errorCode", 1);
-        return "loggin";
     }
 }

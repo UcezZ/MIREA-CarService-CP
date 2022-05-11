@@ -1,36 +1,51 @@
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-  <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %> 
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 
-    <!DOCTYPE html>
-    <html>
+<!DOCTYPE html>
+<html>
 
-    <head>
-      <meta charset="utf-8">
-      <title>Log in with your account</title>
-    </head>
+<head>
+    <meta charset="UTF8">
+    <title>Автосервис uCarService - Вход</title>
+    <link rel="stylesheet" type="text/css" href="${contextPath}/resources/fonts/productsans.css">
+    <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/card.css">
+    <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/form.css">
+    <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/card-state.css">
+</head>
 
-    <body>
-      <sec:authorize access="isAuthenticated()">
-        <% response.sendRedirect("/"); %>
-      </sec:authorize>
-      <div>
-        <form class="form-signin" method="post" action="/login">
-          <h2 class="form-signin-heading">Please sign in</h2>
-          <p>
-            <label for="username" class="sr-only">Username</label>
-            <input type="text" id="username" name="username" class="form-control" placeholder="Username" required=""
-              autofocus="">
-          </p>
-          <p>
-            <label for="password" class="sr-only">Password</label>
-            <input type="password" id="password" name="password" class="form-control" placeholder="Password"
-              required="">
-          </p>
-          <input name="_csrf" type="hidden" value="10a216ec-6bdc-4a7d-9308-e1de6d6453f9">
-          <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-        </form>
-      </div>
-
-    </body>
-
-    </html>
+<body>
+    <%@ include file="header.jsp" %>
+    <div class="main">
+        <c:if test="${errorCode == 1}">
+            <div class="card-wrapper error">
+                <div class="card">
+                    <div class="card-header">Ошибка входа</div>
+                    <div class="card-contents">
+                        <span>Логин или пароль не распознаны!</span>
+                    </div>
+                </div>
+            </div>
+        </c:if>
+        <div class="card-wrapper">
+            <div class="card">
+                <div class="card-header">Вход в аккаунт</div>
+                <form action="" method="POST" enctype="utf8">
+                    <table class="card-contents">
+                            <td>Логин</td>
+                            <td><input name="username"/></td>
+                        </tr>
+                        <tr>
+                            <td>Пароль</td>
+                            <td><input type="password" name="password"/></td>
+                        </tr>
+                    </table>
+                    <div class="submit-wrapper">
+                        <button type="submit">Войти</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>

@@ -14,11 +14,22 @@
     <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/styles.css">
     <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/card.css">
     <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/card-state.css">
+    <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/bigbluebutton.css">
 </head>
 
 <body>
     <%@ include file="header.jsp" %>
     <div class="main">
+        <c:if test="${allTransport.size() == 0}">
+            <div class="card-wrapper error">
+                <div class="card">
+                    <div class="card-header">Нет транспорта!</div>
+                    <div class="card-contents">
+                        <span>Добавьте транспортные средства чтобы увидеть их здесь</span>
+                    </div>
+                </div>
+            </div>
+        </c:if>
         <div class="card-wrapper flex-wrap">
             <c:forEach items="${allTransport}" var="transport">
                 <div class="card">
@@ -51,22 +62,17 @@
                             <td>${transport.getReleaseYear()}</td>
                         </tr>
                         <tr>
-                            <td>Оказано услуг</td>
-                            <td>To be implemented</td>
+                            <td>
+                                <a href="/service/${transport.getId()}">Оказано услуг</a>
+                            </td>
+                            <td>${serviceRepository.getCountByTransportId(transport.getId())}</td>
                         </tr>
                     </table>
                 </div>
             </c:forEach>
-            <c:if test="${allTransport.size() == 0}">
-                <div class="card-wrapper error">
-                    <div class="card">
-                        <div class="card-header">Нет транспорта!</div>
-                        <div class="card-contents">
-                            <span>Добавьте транспортные средства чтобы увидеть их здесь</span>
-                        </div>
-                    </div>
-                </div>
-            </c:if>
+            <div class="vertical-centerer-wrapper">
+                <a class="big-blue-button add-car-icon" href="/transport/add"><span>Добавить транспорт</span></a>
+            </div>
         </div>
     </div>
 </body>

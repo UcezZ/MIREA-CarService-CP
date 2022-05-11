@@ -13,7 +13,7 @@ div.header {
     justify-content: space-between;
     background-color: var(--header-background);
     color: var(--header-forecolor);
-    height: 48px;
+    min-height: 48px;
 }
 
 div.header div.logo-caption span {

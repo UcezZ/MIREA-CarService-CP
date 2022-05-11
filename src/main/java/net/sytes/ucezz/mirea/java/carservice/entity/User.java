@@ -113,10 +113,14 @@ public class User {
         return this;
     }
 
-    public User setPassword(String password) throws NoSuchAlgorithmException {
-        MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-        messageDigest.update(password.getBytes());
-        passwordHashString = new String(messageDigest.digest());
+    public User setPassword(String password) {
+        try {
+            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            messageDigest.update(password.getBytes());
+            passwordHashString = new String(messageDigest.digest());
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace(System.err);
+        }
         return this;
     }
 

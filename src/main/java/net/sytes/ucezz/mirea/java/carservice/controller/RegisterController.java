@@ -66,14 +66,18 @@ public class RegisterController {
         if (errorCode == 0 && !password.equalsIgnoreCase(username)) {
             errorCode = 7;
         }
+        u = new User()
+                .setBirthDate(birthDate)
+                .setFirstName(firstName)
+                .setLastName(lastName)
+                .setMiddleName(middleName)
+                .setUsername(username)
+                .setPassword(password);
+        if (errorCode == 0) {
+            userRepository.register(lastName, firstName, middleName, username, u.getPasswordHashString(), birthDate);
+        }
         model.addAttribute("errorCode", errorCode);
-        model.addAttribute("user",
-                new User()
-                        .setBirthDate(birthDate)
-                        .setFirstName(firstName)
-                        .setLastName(lastName)
-                        .setMiddleName(middleName)
-                        .setUsername(username));
+        model.addAttribute("user", u);
         model.addAttribute("maxDate", LocalDate.now().minusYears(16).toString());
         return "register";
     }

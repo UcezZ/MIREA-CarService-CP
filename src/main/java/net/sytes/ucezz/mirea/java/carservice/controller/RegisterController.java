@@ -63,7 +63,7 @@ public class RegisterController {
         if (errorCode == 0 && !password.equals(passwordConfirm)) {
             errorCode = 6;
         }
-        if (errorCode == 0 && !password.equalsIgnoreCase(username)) {
+        if (errorCode == 0 && password.equalsIgnoreCase(username)) {
             errorCode = 7;
         }
         u = new User()

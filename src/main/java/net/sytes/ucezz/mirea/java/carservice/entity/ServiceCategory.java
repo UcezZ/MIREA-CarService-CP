@@ -6,18 +6,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.transaction.Transactional;
 
 @Entity
 @Table(name = "S_ServiceCategory")
-@Transactional
 public class ServiceCategory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_service_category")
     int id;
-
-    @Column(name = "caption")
     String caption;
 
     public String getCaption() {

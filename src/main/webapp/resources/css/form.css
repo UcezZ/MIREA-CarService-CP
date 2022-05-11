@@ -22,9 +22,9 @@ div.card-wrapper div.card form table.card-contents input {
     transition: 0.3s ease-out;
 }
 
-div.card-wrapper div.card form table.card-contents input:active {
+div.card-wrapper div.card form table.card-contents input:focus {
     border-bottom-width: 1.5px;
-    border-bottom-color: var(--card-border-color-active);
+    border-bottom-color: var(--input-border-color-active);
 }
 
 div.card-wrapper div.card form div.submit-wrapper {
@@ -70,16 +70,27 @@ div.card-wrapper div.card div.card-contents a:active {
     box-shadow: 0 0 2px 0 var(--shadow-color);
 }
 
-div.card-wrapper div.card form table.card-contents input:invalid::after {
-    content: '✖';
-    padding-left: 5px;
+div.card-wrapper div.card form table.card-contents input:invalid {
+    border: none;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    border-bottom-color: var(--input-border-color-invalid);
+    box-shadow: none;
+    /*content: '✖';
+    padding-left: 5px;*/
 }
 
-div.card-wrapper div.card form table.card-contents input:valid::after {
-    content: '✓';
-    padding-left: 5px;
+div.card-wrapper div.card form table.card-contents input:valid {
+    /*border: none;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: var(--input-border-color-valid);
+    /*content: '✓';
+    padding-left: 5px;*/
 }
 
 :root {
-    --card-border-color-active: #888;
+    --input-border-color-active: #888;
+    --input-border-color-invalid: #F22;
+    --input-border-color-valid: #4A4;
 }

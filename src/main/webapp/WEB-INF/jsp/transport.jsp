@@ -12,6 +12,7 @@
     <link rel="stylesheet" type="text/css" href="${contextPath}/resources/fonts/productsans.css">
     <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/styles.css">
     <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/card.css">
+    <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/card-state.css">
 </head>
 
 <body>

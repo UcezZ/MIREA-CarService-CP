@@ -1,8 +1,5 @@
 package net.sytes.ucezz.mirea.java.carservice.controller;
 
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,7 +12,7 @@ import net.sytes.ucezz.mirea.java.carservice.entity.User;
 import net.sytes.ucezz.mirea.java.carservice.repository.UserRepository;
 
 @Controller
-@RequestMapping("/login")
+@RequestMapping("/loggin")
 public class LoginController {
     @Autowired
     UserRepository userRepository;
@@ -32,6 +29,6 @@ public class LoginController {
             @RequestParam(value = "password", defaultValue = "") String password) {
 
         model.addAttribute("errorCode", 1);
-        return "login";
+        return "loggin";
     }
 }

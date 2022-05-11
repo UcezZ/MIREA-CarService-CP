@@ -9,6 +9,7 @@
 <head>
     <meta charset="UTF8">
     <title>Автосервис uCarService - Транспорт</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="${contextPath}/resources/fonts/productsans.css">
     <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/styles.css">
     <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/card.css">
@@ -29,7 +30,7 @@
                         </tr>
                         <tr>
                             <td>Тип транспорта</td>
-                            <td>To be implemented</td>
+                            <td>${transportTypeRepository.getCaption(transport.getIdTransportType())}</td>
                         </tr>
                         <tr>
                             <td>Марка</td>

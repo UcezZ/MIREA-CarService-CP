@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import net.sytes.ucezz.mirea.java.carservice.entity.Transport;
 import net.sytes.ucezz.mirea.java.carservice.entity.User;
 import net.sytes.ucezz.mirea.java.carservice.repository.TransportRepository;
+import net.sytes.ucezz.mirea.java.carservice.repository.TransportTypeRepository;
 import net.sytes.ucezz.mirea.java.carservice.repository.UserRepository;
 
 @Controller
@@ -21,6 +22,9 @@ public class TransportController {
     @Autowired
     TransportRepository transportRepository;
 
+    @Autowired
+    TransportTypeRepository transportTypeRepository;
+
     @RequestMapping("/transport")
     public String transport(Model model) {
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
@@ -29,6 +33,7 @@ public class TransportController {
         model.addAttribute("allTransport", allTransport);
         model.addAttribute("headerDefined", true);
         model.addAttribute("headerCaption", "Мой транспорт");
+        model.addAttribute("transportTypeRepository", transportTypeRepository);
         return "transport";
     }
 }

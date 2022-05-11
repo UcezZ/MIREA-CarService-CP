@@ -37,18 +37,18 @@ public class AuthencationProvider implements AuthenticationProvider {
 
         net.sytes.ucezz.mirea.java.carservice.entity.User user = userRepository.get(userName);
         if (user == null) {
-            throw new BadCredentialsException("Unknown user " + userName);
+            throw new BadCredentialsException("");
         }
         if (!passwordHash.equals(user.getPasswordHashString())) {
-            throw new BadCredentialsException("Bad password");
+            throw new BadCredentialsException("");
         }
+
         UserDetails principal = User.builder()
                 .username(user.getUsername())
                 .password(user.getPasswordHashString())
                 .roles(user.getRole())
                 .build();
         return new UsernamePasswordAuthenticationToken(principal, passwordHash, principal.getAuthorities());
-
     }
 
     @Override

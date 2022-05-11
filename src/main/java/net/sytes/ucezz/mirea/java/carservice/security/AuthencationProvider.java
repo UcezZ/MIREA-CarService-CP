@@ -27,9 +27,9 @@ public class AuthencationProvider implements AuthenticationProvider {
         String passwordHash = new String();
 
         try {
-            MessageDigest md = MessageDigest.getInstance("MD5");
-            md.update(authentication.getCredentials().toString().getBytes());
-            byte[] digest = md.digest();
+            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            messageDigest.update(authentication.getCredentials().toString().getBytes());
+            byte[] digest = messageDigest.digest();
             passwordHash = DatatypeConverter.printHexBinary(digest).toUpperCase();
         } catch (Exception e) {
             e.printStackTrace(System.err);

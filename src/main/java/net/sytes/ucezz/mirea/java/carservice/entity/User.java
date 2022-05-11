@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.transaction.Transactional;
+import javax.xml.bind.DatatypeConverter;
 
 @Entity
 @Table(name = "T_User")
@@ -117,7 +118,8 @@ public class User {
         try {
             MessageDigest messageDigest = MessageDigest.getInstance("MD5");
             messageDigest.update(password.getBytes());
-            passwordHashString = new String(messageDigest.digest());
+            byte[] digest = messageDigest.digest();
+            passwordHashString = DatatypeConverter.printHexBinary(digest).toUpperCase();
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace(System.err);
         }

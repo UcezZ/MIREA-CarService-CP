@@ -25,7 +25,6 @@ public class TransportAddController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String registerGet(WebRequest request, Model model) {
-        model.addAttribute("transport", new TransportEntity());
         model.addAttribute("errorCode", -1);
         model.addAttribute("currentYear", LocalDate.now().getYear());
         model.addAttribute("allTransportType", transportTypeRepository.getAll());
@@ -61,6 +60,13 @@ public class TransportAddController {
         if (errorCode == 0) {
             return "redirect:/transport";
         } else {
+            model.addAttribute("transport",
+                    new TransportEntity()
+                            .setBrand(brand)
+                            .setIdTransportType(idTransportType)
+                            .setModel(tModel)
+                            .setRegNumber(regNumber)
+                            .setReleaseYear(releaseYear));
             model.addAttribute("errorCode", errorCode);
             model.addAttribute("maxDate", LocalDate.now().minusYears(16).toString());
             return "transport-add";

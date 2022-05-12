@@ -28,7 +28,8 @@ public class TransportAddController {
         model.addAttribute("transport", new TransportEntity());
         model.addAttribute("errorCode", -1);
         model.addAttribute("currentYear", LocalDate.now().getYear());
-        return "register";
+        model.addAttribute("allTransportType", transportTypeRepository.getAll());
+        return "transport-add";
     }
 
     @RequestMapping(method = RequestMethod.POST)
@@ -56,10 +57,7 @@ public class TransportAddController {
         if (errorCode == 0 && username.length() == 0) {
             errorCode = 3;
         }
-        UserEntity u = userRepository.get(username);
-        if (errorCode == 0 && u != null) {
-            errorCode = 4;
-        }
+
         if (errorCode == 0 && password.length() == 0) {
             errorCode = 5;
         }
@@ -69,19 +67,9 @@ public class TransportAddController {
         if (errorCode == 0 && password.equalsIgnoreCase(username)) {
             errorCode = 7;
         }
-        u = new UserEntity()
-                .setBirthDate(birthDate)
-                .setFirstName(firstName)
-                .setLastName(lastName)
-                .setMiddleName(middleName)
-                .setUsername(username)
-                .setPassword(password);
-        if (errorCode == 0) {
-            userRepository.register(lastName, firstName, middleName, username, u.getPasswordHashString(), birthDate);
-        }
+
         model.addAttribute("errorCode", errorCode);
-        model.addAttribute("user", u);
         model.addAttribute("maxDate", LocalDate.now().minusYears(16).toString());
-        return "register";
+        return errorCode == 0 ? "redirect:/transport" : "transport-add";
     }
 }

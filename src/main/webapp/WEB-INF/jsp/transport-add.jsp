@@ -70,7 +70,7 @@
                             </tr>
                             <tr>
                                 <td>Регистрационный номер</td>
-                                <td><input name="regNumber" minlength="8" minlength="9" type="text" /></td>
+                                <td><input name="regNumber" placeholder="А000АА000" minlength="8" minlength="9" type="text" /></td>
                             </tr>
                             <tr>
                                 <td>Год выпуска</td>

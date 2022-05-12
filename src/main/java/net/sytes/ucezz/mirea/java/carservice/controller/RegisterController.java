@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +23,8 @@ public class RegisterController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String registerGet(WebRequest request, Model model) {
+        if (!SecurityContextHolder.getContext().getAuthentication().getName().equalsIgnoreCase("anonymousUser"))
+            return "redirect:/";
         model.addAttribute("user", new UserEntity());
         model.addAttribute("errorCode", -1);
         model.addAttribute("maxDate", LocalDate.now().minusYears(16).toString());
@@ -37,6 +40,9 @@ public class RegisterController {
             @RequestParam(value = "username", defaultValue = "") String username,
             @RequestParam(value = "password", defaultValue = "") String password,
             @RequestParam(value = "passwordConfirm", defaultValue = "") String passwordConfirm) {
+
+        if (!SecurityContextHolder.getContext().getAuthentication().getName().equalsIgnoreCase("anonymousUser"))
+            return "redirect:/";
         int errorCode = 0;
 
         if (lastName.length() == 0 || firstName.length() == 0) {

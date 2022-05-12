@@ -24,8 +24,13 @@ div.card-wrapper div.card form table.card-contents select {
 }
 
 div.card-wrapper div.card form table.card-contents select {
-    appearance: none;
     cursor: pointer;
+}
+
+div.card-wrapper div.card form table.card-contents select,
+div.card-wrapper div.card form table.card-contents input[type="number"] {
+
+    appearance: none;
 }
 
 div.card-wrapper div.card form table.card-contents input:focus,

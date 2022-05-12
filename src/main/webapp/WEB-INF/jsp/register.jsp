@@ -51,15 +51,15 @@
                         <table class="card-contents">
                             <tr>
                                 <td>Фамилия</td>
-                                <td><input name="lastName" value="${user.getLastName()}"/></td>
+                                <td><input name="lastName" minlength="2" maxlength="64" value="${user.getLastName()}"/></td>
                             </tr>
                             <tr>
                                 <td>Имя</td>
-                                <td><input name="firstName" value="${user.getFirstName()}"/></td>
+                                <td><input name="firstName" minlength="2" maxlength="64" value="${user.getFirstName()}"/></td>
                             </tr>
                             <tr>
                                 <td>Отчество</td>
-                                <td><input name="middleName" value="${user.getMiddleName()}"/></td>
+                                <td><input name="middleName" maxlength="64" value="${user.getMiddleName()}"/></td>
                             </tr>
                             <tr>
                                 <td>Дата рождения</td>

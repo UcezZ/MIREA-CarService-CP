@@ -20,9 +20,9 @@
     <%@ include file="header.jsp" %>
     <div class="main">
         <c:if test="${errorCode != -1}">
-            <div class="card-wrapper ${errorCode == 0 ? "success" : "error"}">
+            <div class="card-wrapper error">
                 <div class="card">
-                    <div class="card-header">${errorCode == 0 ? "Успешная регистрация" : "Ошибка регистрации"}</div>
+                    <div class="card-header">Ошибка добавления</div>
                     <div class="card-contents">
                         <c:choose>
                             <c:when test="${errorCode == 1}">Тип транспорта не выбран!</c:when>

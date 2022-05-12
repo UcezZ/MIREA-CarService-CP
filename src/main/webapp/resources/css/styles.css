@@ -14,6 +14,7 @@ div.header {
     background-color: var(--header-background);
     color: var(--header-forecolor);
     min-height: 48px;
+    box-shadow: 1px 1px 2px 0 var(--shadow-color);
 }
 
 div.header div.logo-caption span {
@@ -22,7 +23,9 @@ div.header div.logo-caption span {
     margin: 8px;
 }
 
-div.logo-caption, div.header-caption, div.auth-block {
+div.logo-caption,
+div.header-caption,
+div.auth-block {
     flex: 1;
 }
 
@@ -34,15 +37,19 @@ div.header-caption {
     text-size-adjust: 110%;
 }
 
-div.header div.auth-block, div.header div.logo-caption {
+div.header div.auth-block,
+div.header div.logo-caption,
+div.menu-wrapper div.menu {
     font-family: ProductSans;
 }
 
-div.header div.auth-block, div.header div.auth-block {
+div.header div.auth-block,
+div.header div.auth-block {
     justify-content: flex-end;
 }
 
-div.header div.auth-block, div.header div.auth-block div.auth-buttons {
+div.header div.auth-block,
+div.header div.auth-block div.auth-buttons {
     display: flex;
 }
 
@@ -56,7 +63,8 @@ div.header div.auth-block div.profile-icon::before {
     content: url('./../media/icons/profile-icon.svg');
 }
 
-div.header div.auth-block a {
+div.header div.auth-block a,
+div.menu-wrapper div.menu a {
     text-decoration: none;
     cursor: pointer;
     transition: 0.3s ease-out;
@@ -74,14 +82,17 @@ div.header div.auth-block div.auth-buttons a {
 }
 
 div.header div.auth-block span.profile a,
-div.logo-caption a {
+div.logo-caption a,
+div.menu-wrapper div.menu a {
     text-decoration: none;
     color: var(--header-forecolor);
     text-shadow: 1px 1px 2px var(--shadow-color);
 }
 
 div.header div.auth-block span.profile a:hover,
-div.logo-caption a:hover {
+div.logo-caption a:hover,
+div.menu-wrapper div.menu a:hover,
+div.menu-wrapper div.menu a.selected {
     color: var(--profile-hover-color);
 }
 
@@ -94,8 +105,26 @@ div.header div.auth-block div.auth-buttons a:active {
     box-shadow: 0 0 2px 0 var(--shadow-color);
 }
 
-div.main {
-    background-color: var(--main-background);
+div.menu-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+div.menu-wrapper div.menu {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 8px;
+    color: var(--header-forecolor);
+    background-color: var(--header-background);
+}
+
+div.menu-wrapper div.menu a {
+    font-size: 14pt;
+    font-weight: lighter;
+}
+
+div.menu-wrapper div.menu a.selected {
+    font-weight: bold;
 }
 
 :root {
@@ -104,5 +133,4 @@ div.main {
     --auth-button-background-hover: #BDF;
     --shadow-color: #0008;
     --profile-hover-color: #FF8;
-    --main-background: #FFF;
 }

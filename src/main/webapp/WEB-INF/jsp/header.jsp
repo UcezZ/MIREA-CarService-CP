@@ -9,11 +9,16 @@
             <a href="/">uCarService</a>
         </span>
     </div>
-    <c:if test="${headerDefined}">
-        <div class="header-caption vertical-centerer-wrapper">
-            <span>${headerCaption}</span>
+    <sec:authorize access="isAuthenticated()">
+        <div class="menu-wrapper">
+            <div class="menu">
+                <a href="/" class="${pageName == "index" ? "selected" : ""}">Главная</a>
+                <a href="/profile" class="${pageName == "profile" ? "selected" : ""}">Профиль</a>
+                <a href="/service" class="${pageName == "service" ? "selected" : ""}">Услуги</a>
+                <a href="/transport" class="${pageName == "transport" ? "selected" : ""}">Транспорт</a>
+            </div>
         </div>
-    </c:if>
+    </sec:authorize>
     <div class="auth-block">
         <sec:authorize access="isAuthenticated()">
             <div class="profile-icon vertical-centerer-wrapper"></div>

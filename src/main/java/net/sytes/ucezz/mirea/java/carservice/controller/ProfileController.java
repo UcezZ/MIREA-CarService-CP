@@ -27,10 +27,9 @@ public class ProfileController {
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
         UserEntity user = userRepository.get(username);
         int transportCount = transportRepository.getCountByUserId(user.getId());
+        model.addAttribute("pageName", "profile");
         model.addAttribute("user", user);
         model.addAttribute("transportCount", transportCount);
-        model.addAttribute("headerDefined", true);
-        model.addAttribute("headerCaption", "Профиль");
         model.addAttribute("serviceRepository", serviceRepository);
         return "profile";
     }

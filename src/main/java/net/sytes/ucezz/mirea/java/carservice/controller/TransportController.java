@@ -34,9 +34,9 @@ public class TransportController {
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
         UserEntity user = userRepository.get(username);
         List<TransportEntity> allTransport = transportRepository.getAllByUserId(user.getId());
+
+        model.addAttribute("pageName", "transport");
         model.addAttribute("allTransport", allTransport);
-        model.addAttribute("headerDefined", true);
-        model.addAttribute("headerCaption", "Мой транспорт");
         model.addAttribute("transportTypeRepository", transportTypeRepository);
         model.addAttribute("serviceRepository", serviceRepository);
         return "transport";

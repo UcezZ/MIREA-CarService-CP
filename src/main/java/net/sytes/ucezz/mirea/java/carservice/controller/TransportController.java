@@ -8,8 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import net.sytes.ucezz.mirea.java.carservice.entity.Transport;
-import net.sytes.ucezz.mirea.java.carservice.entity.User;
+import net.sytes.ucezz.mirea.java.carservice.entity.TransportEntity;
+import net.sytes.ucezz.mirea.java.carservice.entity.UserEntity;
+import net.sytes.ucezz.mirea.java.carservice.repository.ServiceRepository;
 import net.sytes.ucezz.mirea.java.carservice.repository.TransportRepository;
 import net.sytes.ucezz.mirea.java.carservice.repository.TransportTypeRepository;
 import net.sytes.ucezz.mirea.java.carservice.repository.UserRepository;
@@ -25,15 +26,19 @@ public class TransportController {
     @Autowired
     TransportTypeRepository transportTypeRepository;
 
+    @Autowired
+    ServiceRepository serviceRepository;
+
     @RequestMapping("/transport")
     public String transport(Model model) {
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
-        User user = userRepository.get(username);
-        List<Transport> allTransport = transportRepository.getAllByUserId(user.getId());
+        UserEntity user = userRepository.get(username);
+        List<TransportEntity> allTransport = transportRepository.getAllByUserId(user.getId());
         model.addAttribute("allTransport", allTransport);
         model.addAttribute("headerDefined", true);
         model.addAttribute("headerCaption", "Мой транспорт");
         model.addAttribute("transportTypeRepository", transportTypeRepository);
+        model.addAttribute("serviceRepository", serviceRepository);
         return "transport";
     }
 }

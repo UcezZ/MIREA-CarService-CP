@@ -63,7 +63,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <a href="/service/${transport.getId()}">Оказано услуг</a>
+                                <a href="/service/${transport.getId()}">Количество услуг</a>
                             </td>
                             <td>${serviceRepository.getCountByTransportId(transport.getId())}</td>
                         </tr>

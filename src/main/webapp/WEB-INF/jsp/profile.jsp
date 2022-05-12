@@ -52,6 +52,12 @@
                             </a>
                         </td>
                         <td>${transportCount}</td>
+                </tr>
+                    <tr>
+                        <td>
+                            <a href="/service/">Количество услуг</a>
+                        </td>
+                        <td>${serviceRepository.getCountByUserId(user.getId())}</td>
                     </tr>
                 </table>
             </div>

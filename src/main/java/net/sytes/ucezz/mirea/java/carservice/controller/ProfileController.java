@@ -6,7 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import net.sytes.ucezz.mirea.java.carservice.entity.User;
+import net.sytes.ucezz.mirea.java.carservice.entity.UserEntity;
+import net.sytes.ucezz.mirea.java.carservice.repository.ServiceRepository;
 import net.sytes.ucezz.mirea.java.carservice.repository.TransportRepository;
 import net.sytes.ucezz.mirea.java.carservice.repository.UserRepository;
 
@@ -18,15 +19,19 @@ public class ProfileController {
     @Autowired
     TransportRepository transportRepository;
 
+    @Autowired
+    ServiceRepository serviceRepository;
+
     @RequestMapping("/profile")
     public String profile(Model model) {
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
-        User user = userRepository.get(username);
+        UserEntity user = userRepository.get(username);
         int transportCount = transportRepository.getCountByUserId(user.getId());
         model.addAttribute("user", user);
         model.addAttribute("transportCount", transportCount);
         model.addAttribute("headerDefined", true);
         model.addAttribute("headerCaption", "Профиль");
+        model.addAttribute("serviceRepository", serviceRepository);
         return "profile";
     }
 }

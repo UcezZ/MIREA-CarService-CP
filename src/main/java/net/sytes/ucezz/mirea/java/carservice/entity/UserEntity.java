@@ -15,7 +15,7 @@ import javax.xml.bind.DatatypeConverter;
 @Entity
 @Table(name = "T_User")
 @Transactional
-public class User {
+public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_User")
@@ -28,13 +28,13 @@ public class User {
     String passwordHashString;
     String birthDate;
 
-    public User() {
+    public UserEntity() {
         isManager = false;
         id = 0;
         lastName = firstName = middleName = username = passwordHashString = birthDate = "";
     }
 
-    public User(String username, String passwordHashString) {
+    public UserEntity(String username, String passwordHashString) {
         this.username = username;
         this.passwordHashString = passwordHashString;
     }
@@ -84,37 +84,37 @@ public class User {
         return username;
     }
 
-    public User setBirthDate(String birthDate) {
+    public UserEntity setBirthDate(String birthDate) {
         this.birthDate = birthDate;
         return this;
     }
 
-    public User setFirstName(String firstName) {
+    public UserEntity setFirstName(String firstName) {
         this.firstName = firstName;
         return this;
     }
 
-    public User setId(int id) {
+    public UserEntity setId(int id) {
         this.id = id;
         return this;
     }
 
-    public User setIsManager(Boolean isManager) {
+    public UserEntity setIsManager(Boolean isManager) {
         this.isManager = isManager;
         return this;
     }
 
-    public User setLastName(String lastName) {
+    public UserEntity setLastName(String lastName) {
         this.lastName = lastName;
         return this;
     }
 
-    public User setMiddleName(String middleName) {
+    public UserEntity setMiddleName(String middleName) {
         this.middleName = middleName;
         return this;
     }
 
-    public User setPassword(String password) {
+    public UserEntity setPassword(String password) {
         try {
             MessageDigest messageDigest = MessageDigest.getInstance("MD5");
             messageDigest.update(password.getBytes());
@@ -126,7 +126,7 @@ public class User {
         return this;
     }
 
-    public User setUsername(String username) {
+    public UserEntity setUsername(String username) {
         this.username = username;
         return this;
     }
@@ -135,7 +135,7 @@ public class User {
         return isManager ? getUsername().equalsIgnoreCase("Admin") ? "ADMIN" : "MANAGER" : "CLIENT";
     }
 
-    public User setRole(String role) {
+    public UserEntity setRole(String role) {
         setIsManager(role == "MANAGER");
         return this;
     }

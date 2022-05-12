@@ -8,7 +8,8 @@ div.card-wrapper div.card form {
     padding: 0;
 }
 
-div.card-wrapper div.card form table.card-contents input {
+div.card-wrapper div.card form table.card-contents input,
+div.card-wrapper div.card form table.card-contents select {
     width: 240px;
     font-size: inherit;
     font-family: inherit;
@@ -22,7 +23,13 @@ div.card-wrapper div.card form table.card-contents input {
     transition: 0.3s ease-out;
 }
 
-div.card-wrapper div.card form table.card-contents input:focus {
+div.card-wrapper div.card form table.card-contents select {
+    appearance: none;
+    cursor: pointer;
+}
+
+div.card-wrapper div.card form table.card-contents input:focus,
+div.card-wrapper div.card form table.card-contents select:focus {
     border-bottom-width: 1.5px;
     border-bottom-color: var(--input-border-color-active);
 }
@@ -70,7 +77,8 @@ div.card-wrapper div.card div.card-contents a:active {
     box-shadow: 0 0 2px 0 var(--shadow-color);
 }
 
-div.card-wrapper div.card form table.card-contents input:invalid {
+div.card-wrapper div.card form table.card-contents input:invalid,
+div.card-wrapper div.card form table.card-contents select:invalid {
     border: none;
     border-bottom-style: solid;
     border-bottom-width: 2px;

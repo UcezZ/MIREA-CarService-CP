@@ -6,16 +6,16 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import net.sytes.ucezz.mirea.java.carservice.entity.TransportType;
+import net.sytes.ucezz.mirea.java.carservice.entity.TransportTypeEntity;
 
 @Repository
-public interface TransportTypeRepository extends CrudRepository<TransportType, Long> {
+public interface TransportTypeRepository extends CrudRepository<TransportTypeEntity, Long> {
     @Query(value = "select * from S_TransportType where id_transport_type = ?1", nativeQuery = true)
-    TransportType get(int id);
+    TransportTypeEntity get(int id);
 
     @Query(value = "select caption from S_TransportType where id_transport_type = ?1", nativeQuery = true)
     String getCaption(int id);
 
     @Query(value = "select * from S_TransportType", nativeQuery = true)
-    List<TransportType> getAll();
+    List<TransportTypeEntity> getAll();
 }

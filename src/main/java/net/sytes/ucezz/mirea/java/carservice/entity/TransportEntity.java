@@ -11,7 +11,7 @@ import javax.transaction.Transactional;
 @Entity
 @Table(name = "T_Transport")
 @Transactional
-public class Transport {
+public class TransportEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_Transport")

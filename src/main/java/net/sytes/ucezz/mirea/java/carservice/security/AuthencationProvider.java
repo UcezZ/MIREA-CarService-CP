@@ -35,7 +35,7 @@ public class AuthencationProvider implements AuthenticationProvider {
             e.printStackTrace(System.err);
         }
 
-        net.sytes.ucezz.mirea.java.carservice.entity.User user = userRepository.get(userName);
+        net.sytes.ucezz.mirea.java.carservice.entity.UserEntity user = userRepository.get(userName);
         if (user == null) {
             throw new BadCredentialsException("");
         }

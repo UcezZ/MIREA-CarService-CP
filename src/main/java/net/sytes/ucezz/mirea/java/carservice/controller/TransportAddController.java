@@ -11,20 +11,23 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.context.request.WebRequest;
 
+import net.sytes.ucezz.mirea.java.carservice.entity.TransportEntity;
+import net.sytes.ucezz.mirea.java.carservice.entity.TransportTypeEntity;
 import net.sytes.ucezz.mirea.java.carservice.entity.UserEntity;
+import net.sytes.ucezz.mirea.java.carservice.repository.TransportTypeRepository;
 import net.sytes.ucezz.mirea.java.carservice.repository.UserRepository;
 
 @Controller
-@RequestMapping("/register")
-public class RegisterController {
+@RequestMapping("/transport/add")
+public class TransportAddController {
     @Autowired
-    UserRepository userRepository;
+    TransportTypeRepository transportTypeRepository;
 
     @RequestMapping(method = RequestMethod.GET)
     public String registerGet(WebRequest request, Model model) {
-        model.addAttribute("user", new UserEntity());
+        model.addAttribute("transport", new TransportEntity());
         model.addAttribute("errorCode", -1);
-        model.addAttribute("maxDate", LocalDate.now().minusYears(16).toString());
+        model.addAttribute("currentYear", LocalDate.now().getYear());
         return "register";
     }
 

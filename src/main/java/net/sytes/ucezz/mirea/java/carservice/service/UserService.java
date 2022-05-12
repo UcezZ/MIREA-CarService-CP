@@ -16,7 +16,7 @@ public class UserService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
-        net.sytes.ucezz.mirea.java.carservice.entity.User user = userRepository.get(userName);
+        net.sytes.ucezz.mirea.java.carservice.entity.UserEntity user = userRepository.get(userName);
         if (user == null) {
             throw new UsernameNotFoundException("Unknown user: " + userName);
         }

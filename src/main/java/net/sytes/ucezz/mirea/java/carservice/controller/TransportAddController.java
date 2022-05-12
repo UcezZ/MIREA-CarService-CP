@@ -34,42 +34,36 @@ public class TransportAddController {
 
     @RequestMapping(method = RequestMethod.POST)
     public String registerPost(WebRequest request, Model model,
-            @RequestParam(value = "lastName", defaultValue = "") String lastName,
-            @RequestParam(value = "firstName", defaultValue = "") String firstName,
-            @RequestParam(value = "middleName", defaultValue = "") String middleName,
-            @RequestParam(value = "birthDate", defaultValue = "") String birthDate,
-            @RequestParam(value = "username", defaultValue = "") String username,
-            @RequestParam(value = "password", defaultValue = "") String password,
-            @RequestParam(value = "passwordConfirm", defaultValue = "") String passwordConfirm) {
+            @RequestParam(value = "idTransportType", defaultValue = "") int idTransportType,
+            @RequestParam(value = "brand", defaultValue = "") String brand,
+            @RequestParam(value = "model", defaultValue = "") String tModel,
+            @RequestParam(value = "regNumber", defaultValue = "") String regNumber,
+            @RequestParam(value = "releaseYear", defaultValue = "") int releaseYear) {
         int errorCode = 0;
 
-        if (lastName.length() == 0 || firstName.length() == 0) {
+        TransportTypeEntity transportTypeEntity = transportTypeRepository.get(idTransportType);
+        if (transportTypeEntity == null) {
             errorCode = 1;
         }
-        if (errorCode == 0) {
-            try {
-                birthDate = new SimpleDateFormat("yyyy-MM-dd")
-                        .format(new SimpleDateFormat("yyyy-MM-dd").parse(birthDate));
-            } catch (Exception e) {
-                errorCode = 2;
-            }
+
+        if (errorCode == 0 && (brand.length() == 0 || tModel.length() == 0)) {
+            errorCode = 2;
         }
-        if (errorCode == 0 && username.length() == 0) {
+
+        if (errorCode == 0 && (regNumber.length() < 8 || regNumber.length() > 9)) {
             errorCode = 3;
         }
 
-        if (errorCode == 0 && password.length() == 0) {
-            errorCode = 5;
-        }
-        if (errorCode == 0 && !password.equals(passwordConfirm)) {
-            errorCode = 6;
-        }
-        if (errorCode == 0 && password.equalsIgnoreCase(username)) {
-            errorCode = 7;
+        if (errorCode == 0 && (releaseYear < 1900 || releaseYear > LocalDate.now().getYear())) {
+            errorCode = 4;
         }
 
-        model.addAttribute("errorCode", errorCode);
-        model.addAttribute("maxDate", LocalDate.now().minusYears(16).toString());
-        return errorCode == 0 ? "redirect:/transport" : "transport-add";
+        if (errorCode == 0) {
+            return "redirect:/transport";
+        } else {
+            model.addAttribute("errorCode", errorCode);
+            model.addAttribute("maxDate", LocalDate.now().minusYears(16).toString());
+            return "transport-add";
+        }
     }
 }

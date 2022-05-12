@@ -25,18 +25,10 @@
                     <div class="card-header">${errorCode == 0 ? "Успешная регистрация" : "Ошибка регистрации"}</div>
                     <div class="card-contents">
                         <c:choose>
-                            <c:when test="${errorCode == 0}">
-                                <span>Вы успешно зарегистрировались!</span>
-                                <span>Используйте введенные при регистрации данные для входа.</span>
-                                <a href="/login">Войти</a>
-                            </c:when>
-                            <c:when test="${errorCode == 1}">Имя или фамилия не указаны!</c:when>
-                            <c:when test="${errorCode == 2}">Дата рождения не указана или указана неверно!</c:when>
-                            <c:when test="${errorCode == 3}">Имя пользователя не указано!</c:when>
-                            <c:when test="${errorCode == 4}">Указанное имя пользователя уже занято!</c:when>
-                            <c:when test="${errorCode == 5}">Пароль не указан!</c:when>
-                            <c:when test="${errorCode == 6}">Введённые пароли не совпадают!</c:when>
-                            <c:when test="${errorCode == 7}">Логин и пароль не должны совпадать!</c:when>
+                            <c:when test="${errorCode == 1}">Тип транспорта не выбран!</c:when>
+                            <c:when test="${errorCode == 2}">Марка или модель транспорта не указана!</c:when>
+                            <c:when test="${errorCode == 3}">Регистрационный номер не указан или указан неверно!</c:when>
+                            <c:when test="${errorCode == 4}">Год выпуска не указан или указан неверно!</c:when>
                             <c:otherwise>undefined</c:otherwise>
                         </c:choose>
                     </div>
@@ -46,13 +38,13 @@
         <c:if test="${errorCode != 0}">
             <div class="card-wrapper">
                 <div class="card">
-                    <div class="card-header">Регистрация клиента</div>
+                    <div class="card-header">Добавление транспорта</div>
                     <form action="" method="POST" enctype="utf8">
                         <table class="card-contents" id="add-transport">
                             <tr>
                                 <td>Тип транспорта</td>
                                 <td>
-                                    <select name="idTransport" form="add-transport">
+                                    <select name="idTransportType" form="add-transport">
                                         <option value="0">Выберите тип</option>
                                         <c:forEach items="${allTransportType}" var="transportType">
                                             <option value="${transportType.getId()}">${transportType.getCaption()}</option>

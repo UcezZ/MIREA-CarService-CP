@@ -25,12 +25,11 @@ div.card-wrapper div.card form table.card-contents select {
 
 div.card-wrapper div.card form table.card-contents select {
     cursor: pointer;
+    appearance: none;
 }
 
-div.card-wrapper div.card form table.card-contents select,
 div.card-wrapper div.card form table.card-contents input[type="number"] {
-
-    appearance: none;
+    appearance: textfield;
 }
 
 div.card-wrapper div.card form table.card-contents input:focus,

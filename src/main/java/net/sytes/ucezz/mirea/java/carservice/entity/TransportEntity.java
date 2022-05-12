@@ -63,31 +63,38 @@ public class TransportEntity {
         return releaseYear;
     }
 
-    public void setBrand(String brand) {
+    public TransportEntity setBrand(String brand) {
         this.brand = brand;
+        return this;
     }
 
-    public void setId(int id) {
+    public TransportEntity setId(int id) {
         this.id = id;
+        return this;
     }
 
-    public void setIdTransportType(int idTransportType) {
+    public TransportEntity setIdTransportType(int idTransportType) {
         this.idTransportType = idTransportType;
+        return this;
     }
 
-    public void setIdUser(int idUser) {
+    public TransportEntity setIdUser(int idUser) {
         this.idUser = idUser;
+        return this;
     }
 
-    public void setModel(String model) {
+    public TransportEntity setModel(String model) {
         this.model = model;
+        return this;
     }
 
-    public void setRegNumber(String regNumber) {
+    public TransportEntity setRegNumber(String regNumber) {
         this.regNumber = regNumber;
+        return this;
     }
 
-    public void setReleaseYear(int releaseYear) {
+    public TransportEntity setReleaseYear(int releaseYear) {
         this.releaseYear = releaseYear;
+        return this;
     }
 }

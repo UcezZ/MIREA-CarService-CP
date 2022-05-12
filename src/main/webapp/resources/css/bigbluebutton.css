@@ -15,6 +15,8 @@ a.big-blue-button {
     text-decoration: none;
     cursor: pointer;
     margin: 8px;
+    background-position: center center;
+    background-repeat: no-repeat;
 }
 
 a.big-blue-button:hover {
@@ -39,6 +41,8 @@ a.big-blue-button span {
 
 a.big-blue-button.add-car-icon {
     background-image: url('./../media/icons/add-car-icon.svg');
-    background-position: center center;
-    background-repeat: no-repeat;
+}
+
+a.big-blue-button.add-service-icon {
+    background-image: url('./../media/icons/add-service-icon.svg');
 }

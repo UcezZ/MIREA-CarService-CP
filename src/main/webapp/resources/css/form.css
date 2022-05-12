@@ -106,23 +106,19 @@ div.card-wrapper div.card div.card-contents a:active {
 }
 
 div.card-wrapper div.card form table.card-contents input:invalid,
-div.card-wrapper div.card form table.card-contents select:invalid {
+div.card-wrapper div.card form table.card-contents select:invalid,
+div.card-wrapper div.card form table.card-contents textarea:invalid {
     border: none;
     border-bottom-style: solid;
     border-bottom-width: 2px;
     border-bottom-color: var(--input-border-color-invalid);
     box-shadow: none;
-    /*content: '✖';
-    padding-left: 5px;*/
 }
 
-div.card-wrapper div.card form table.card-contents input:valid {
-    /*border: none;
-    border-bottom-style: solid;
-    border-bottom-width: 1px;
-    border-bottom-color: var(--input-border-color-valid);
-    /*content: '✓';
-    padding-left: 5px;*/
+div.card-wrapper div.card form table.card-contents textarea:invalid {
+    border-top-style: solid;
+    border-top-width: 2px;
+    border-top-color: var(--input-border-color-invalid);
 }
 
 :root {

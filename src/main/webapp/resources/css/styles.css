@@ -127,6 +127,10 @@ div.menu-wrapper div.menu a.selected {
     font-weight: bold;
 }
 
+.flex-column {
+    flex-flow: column;
+}
+
 :root {
     --header-background: #08D;
     --header-forecolor: #FFF;

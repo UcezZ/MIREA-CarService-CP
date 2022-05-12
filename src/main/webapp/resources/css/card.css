@@ -51,6 +51,8 @@ div.card-wrapper div.card table.card-contents tr td:first-child {
 
 div.card-wrapper div.card table.card-contents tr td:nth-child(2) {
     text-align: left;
+    word-wrap: break-word;
+    max-width: 400px;
 }
 
 :root {

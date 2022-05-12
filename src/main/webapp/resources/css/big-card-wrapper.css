@@ -1,10 +1,10 @@
-div.card-wrapper.big div.card-wrapper-header {
-    font-family: ProductSans;
-    background-color: var(--header-background);
-    color: var(--header-forecolor);
-    border-bottom-color: var(--card-border-color);
-    border-bottom-style: solid;
-    font-size: 24pt;
-    padding: 8px;
-    text-align: left;
+div.card.big {
+    flex: 1;
+}
+
+div.card.big>div.card-header {
+    border-bottom-style: solid !important;
+    border-bottom-width: 1.5px;
+    text-align: left !important;
+    padding-left: 16px !important;
 }

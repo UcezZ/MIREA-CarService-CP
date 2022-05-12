@@ -29,6 +29,8 @@
                             <c:when test="${errorCode == 2}">Марка или модель транспорта не указана!</c:when>
                             <c:when test="${errorCode == 3}">Регистрационный номер не указан или указан неверно!</c:when>
                             <c:when test="${errorCode == 4}">Год выпуска не указан или указан неверно!</c:when>
+                            <c:when test="${errorCode == 5}">Транспорт с таким регистрационным номером уже существует!</c:when>
+                            <c:when test="${errorCode == 6}">Пользователь не распознан!<br>Попробуйте перезайти в аккаунт.</c:when>
                             <c:otherwise>undefined</c:otherwise>
                         </c:choose>
                     </div>
@@ -39,34 +41,48 @@
             <div class="card-wrapper">
                 <div class="card">
                     <div class="card-header">Добавление транспорта</div>
-                    <form action="" method="POST" enctype="utf8">
-                        <table class="card-contents" id="add-transport">
+                    <form action="/transport/add" method="POST" id="add-transport" enctype="utf8">
+                        <table class="card-contents">
                             <tr>
                                 <td>Тип транспорта</td>
                                 <td>
-                                    <select name="idTransportType" form="add-transport">
-                                        <option value="0">Выберите тип</option>
+                                    <select name="transportType" form="add-transport">
+                                        <c:choose>
+                                            <c:when test="${transport.getIdTransportType() == 0}">
+                                                <option value="0" selected>Выберите тип</option>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <option value="0">Выберите тип</option>
+                                            </c:otherwise>
+                                        </c:choose>
                                         <c:forEach items="${allTransportType}" var="transportType">
-                                            <option value="${transportType.getId()}">${transportType.getCaption()}</option>
+                                            <c:choose>
+                                                <c:when test="${transport.getIdTransportType() == transportType.getId()}">
+                                                    <option value="${transportType.getId()}" selected>${transportType.getCaption()}</option>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <option value="${transportType.getId()}">${transportType.getCaption()}</option>
+                                                </c:otherwise>
+                                            </c:choose>
                                         </c:forEach>
                                     </select>
                                 </td>
                             </tr>
                             <tr>
                                 <td>Марка</td>
-                                <td><input name="brand" type="text" /></td>
+                                <td><input name="brand" type="text" value="${transport.getBrand()}" /></td>
                             </tr>
                             <tr>
                                 <td>Модель</td>
-                                <td><input name="model" type="text" /></td>
+                                <td><input name="model" type="text" value="${transport.getModel()}" /></td>
                             </tr>
                             <tr>
                                 <td>Регистрационный номер</td>
-                                <td><input name="regNumber" placeholder="А000АА000" minlength="8" minlength="9" type="text" /></td>
+                                <td><input name="regNumber" placeholder="А000АА000" minlength="8" minlength="9" type="text" value="${transport.getRegNumber()}" /></td>
                             </tr>
                             <tr>
                                 <td>Год выпуска</td>
-                                <td><input name="releaseYear" min="1900" max="${currentYear}" type="number" /></td>
+                                <td><input name="releaseYear" min="1900" max="${currentYear}" type="number" value="${transport.getReleaseYear() >= 1900 && transport.getReleaseYear() <= currentYear ? Integer.toString(transport.getReleaseYear()) : ""}" /></td>
                             </tr>
                         </table>
                         <div class="submit-wrapper">

@@ -13,6 +13,9 @@ public interface TransportTypeRepository extends CrudRepository<TransportTypeEnt
     @Query(value = "select * from S_TransportType where id_transport_type = ?1", nativeQuery = true)
     TransportTypeEntity get(int id);
 
+    @Query(value = "select * from S_TransportType where caption = ?1", nativeQuery = true)
+    TransportTypeEntity get(String caption);
+
     @Query(value = "select caption from S_TransportType where id_transport_type = ?1", nativeQuery = true)
     String getCaption(int id);
 

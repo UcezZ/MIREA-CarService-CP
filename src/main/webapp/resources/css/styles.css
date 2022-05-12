@@ -73,19 +73,16 @@ div.header div.auth-block div.auth-buttons a {
     box-shadow: 1px 1px 2px 0 var(--shadow-color);
 }
 
-div.header div.auth-block span.profile a {
+div.header div.auth-block span.profile a,
+div.logo-caption a {
     text-decoration: none;
     color: var(--header-forecolor);
     text-shadow: 1px 1px 2px var(--shadow-color);
 }
 
-div.header div.auth-block span.profile a:hover {
+div.header div.auth-block span.profile a:hover,
+div.logo-caption a:hover {
     color: var(--profile-hover-color);
-}
-
-div.header div.auth-block span.profile a:active {
-    transform: translateX(1px) translateY(1px);
-    text-shadow: 0 0 2px 0 var(--shadow-color);
 }
 
 div.header div.auth-block div.auth-buttons a:hover {

@@ -18,14 +18,19 @@ div.card-wrapper div.card form table.card-contents select {
     border-bottom-width: 1px;
     border-bottom-color: var(--card-border-color);
     border-radius: 8px;
-    padding: 2px 6px;
     outline: none;
     transition: 0.3s ease-out;
+}
+
+div.card-wrapper div.card form table.card-contents input {
+    padding: 2px 6px;
 }
 
 div.card-wrapper div.card form table.card-contents select {
     cursor: pointer;
     appearance: none;
+    padding: 2px;
+    width: 100%;
 }
 
 div.card-wrapper div.card form table.card-contents input[type="number"] {

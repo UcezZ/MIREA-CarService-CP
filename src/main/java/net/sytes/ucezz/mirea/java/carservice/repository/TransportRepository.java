@@ -13,6 +13,9 @@ public interface TransportRepository extends CrudRepository<TransportEntity, Lon
     @Query(value = "select * from t_transport where id_transport = ?1", nativeQuery = true)
     TransportEntity get(int id);
 
+    @Query(value = "select * from t_transport where reg_number = ?1", nativeQuery = true)
+    TransportEntity get(String regNumber);
+
     @Query(value = "select * from t_transport where id_user = ?1", nativeQuery = true)
     List<TransportEntity> getAllByUserId(int id);
 
@@ -24,4 +27,7 @@ public interface TransportRepository extends CrudRepository<TransportEntity, Lon
 
     @Query(value = "select count(*) from t_transport where id_user = ?1", nativeQuery = true)
     int getCountByUserId(int id);
+
+    @Query(value = "insert into t_transport (id_transport_type, id_user, brand, model, reg_number, release_year) values (?1, ?2, ?3, ?4, ?5, ?6); select '';", nativeQuery = true)
+    void add(int idTransportType, int idUser, String brand, String model, String regNumber, int releaseYear);
 }

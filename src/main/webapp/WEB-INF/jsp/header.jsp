@@ -5,7 +5,9 @@
 
 <div class="header">
     <div class="logo-caption vertical-centerer-wrapper">
-        <span>uCarService</span>
+        <span>
+            <a href="/">uCarService</a>
+        </span>
     </div>
     <c:if test="${headerDefined}">
         <div class="header-caption vertical-centerer-wrapper">

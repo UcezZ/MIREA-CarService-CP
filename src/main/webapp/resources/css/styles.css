@@ -8,6 +8,10 @@ body {
     justify-content: space-around;
 }
 
+.vertical-centerer-wrapper.row {
+    flex-direction: row !important;
+}
+
 div.header {
     display: flex;
     justify-content: space-between;

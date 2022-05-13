@@ -1,5 +1,8 @@
 package net.sytes.ucezz.mirea.java.carservice.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -14,6 +17,7 @@ import net.sytes.ucezz.mirea.java.carservice.entity.ServiceEntity;
 import net.sytes.ucezz.mirea.java.carservice.entity.TransportEntity;
 import net.sytes.ucezz.mirea.java.carservice.entity.UserEntity;
 import net.sytes.ucezz.mirea.java.carservice.repository.ServiceCategoryRepository;
+import net.sytes.ucezz.mirea.java.carservice.repository.ServiceRepository;
 import net.sytes.ucezz.mirea.java.carservice.repository.TransportRepository;
 import net.sytes.ucezz.mirea.java.carservice.repository.TransportTypeRepository;
 import net.sytes.ucezz.mirea.java.carservice.repository.UserRepository;
@@ -32,6 +36,9 @@ public class ServiceAddController {
 
     @Autowired
     ServiceCategoryRepository serviceCategoryRepository;
+
+    @Autowired
+    ServiceRepository serviceRepository;
 
     @RequestMapping(method = RequestMethod.GET)
     public String registerGet(WebRequest request, Model model) {
@@ -83,7 +90,8 @@ public class ServiceAddController {
         }
 
         if (errorCode == 0) {
-            // TODO: service adding to db
+            serviceRepository.add(idServiceCategory, idTransport, description,
+                    new SimpleDateFormat("yyyy-MM-dd HH:mm").format(new Date()));
             return "redirect:/service";
         } else {
             model.addAttribute("errorCode", errorCode);

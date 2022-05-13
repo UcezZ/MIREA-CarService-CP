@@ -31,8 +31,8 @@ public class ServiceEntity {
     }
 
     public String getCompletionHumanReadable() throws ParseException {
-        return new SimpleDateFormat("d MMM yyyy mm:HH")
-                .format(new SimpleDateFormat("yyyy-MM-dd mm:HH").parse(completion));
+        return new SimpleDateFormat("d MMM yyyy HH:mm")
+                .format(new SimpleDateFormat("yyyy-MM-dd HH:mm").parse(completion));
     }
 
     public String getCreation() {
@@ -40,8 +40,8 @@ public class ServiceEntity {
     }
 
     public String getCreationHumanReadable() throws ParseException {
-        return new SimpleDateFormat("d MMM yyyy mm:HH")
-                .format(new SimpleDateFormat("yyyy-MM-dd mm:HH").parse(creation));
+        return new SimpleDateFormat("d MMM yyyy HH:mm")
+                .format(new SimpleDateFormat("yyyy-MM-dd HH:mm").parse(creation));
     }
 
     public String getDescription() {

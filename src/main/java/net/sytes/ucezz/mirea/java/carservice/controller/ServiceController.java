@@ -43,9 +43,16 @@ public class ServiceController {
                 SecurityContextHolder.getContext().getAuthentication().getName());
         model.addAttribute("transportRepository", transportRepository);
         model.addAttribute("serviceCategoryRepository", serviceCategoryRepository);
+        model.addAttribute("userRepository", userRepository);
         model.addAttribute("userNewServices", serviceRepository.getUserNewServices(user.getId()));
         model.addAttribute("userActiveServices", serviceRepository.getUserActiveServices(user.getId()));
         model.addAttribute("userClosedServices", serviceRepository.getUserClosedServices(user.getId()));
+        if (user.getIsManager()) {
+            model.addAttribute("managerNewServices", serviceRepository.getManagerNewServices());
+            model.addAttribute("managerActiveServices", serviceRepository.getManagerActiveServices(user.getId()));
+            model.addAttribute("managerClosedServices", serviceRepository.getManagerClosedServices(user.getId()));
+        }
+        model.addAttribute("user", user);
         model.addAttribute("pageName", "service");
         return "service";
     }

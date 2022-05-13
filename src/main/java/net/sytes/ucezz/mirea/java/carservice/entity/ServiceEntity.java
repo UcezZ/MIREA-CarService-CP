@@ -1,5 +1,8 @@
 package net.sytes.ucezz.mirea.java.carservice.entity;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -27,8 +30,18 @@ public class ServiceEntity {
         return completion;
     }
 
+    public String getCompletionHumanReadable() throws ParseException {
+        return new SimpleDateFormat("d MMM yyyy mm:HH")
+                .format(new SimpleDateFormat("yyyy-MM-dd mm:HH").parse(completion));
+    }
+
     public String getCreation() {
         return creation;
+    }
+
+    public String getCreationHumanReadable() throws ParseException {
+        return new SimpleDateFormat("d MMM yyyy mm:HH")
+                .format(new SimpleDateFormat("yyyy-MM-dd mm:HH").parse(creation));
     }
 
     public String getDescription() {

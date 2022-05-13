@@ -14,6 +14,8 @@
     <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/card.css">
     <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/form.css">
     <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/card-state.css">
+    <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/bigbluebutton.css">
+    <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/big-card-wrapper.css">
 </head>
 
 <body>
@@ -145,8 +147,93 @@
                         </div>
                     </c:if>
                 </c:if>
+            </c:if>
+            <div class="card big">
+                <div class="card-header">Запрошенные услуги</div>
+                <div class="card-wrapper flex-wrap">
+                    <c:if test="${userNewServices.size() > 0}">
+                        <c:forEach items="${userNewServices}" var="service">
+                            <c:set var="transport" value="${transportRepository.get(service.getIdTransport())}" />
+                            <div class="card">
+                                <div class="card-header">${transport.getBrand()} ${transport.getModel()}</div>
+                                <table class="card-contents">
+                                    <tr>
+                                        <td>Идентификатор</td>
+                                        <td>${service.getId()}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Категория услуги</td>
+                                        <td>${serviceCategoryRepository.get(service.getIdServiceCategory()).getCaption()}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Обслуживаемый транспорт</td>
+                                        <td>
+                                            ${transport.getBrand()} ${transport.getModel()}, ${transport.getReleaseYear()}, ${fn:substring(transport.getRegNumber(), 0, 6)}<sup>${fn:substring(transport.getRegNumber(), 6, -1)}</sup>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Дата заявки</td>
+                                        <td>${service.getCreationHumanReadable()}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Описание</td>
+                                        <td>${service.getDescription()}</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </c:forEach>
+                    </c:if>
+                    <div class="vertical-centerer-wrapper">
+                        <a class="big-blue-button add-service-icon" href="/service/add">
+                            <span>Новая услуга</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <c:if test="${userActiveServices.size() > 0}">
                 <div class="card big">
-                    <div class="card-header">Запрошенные услуги</div>
+                    <div class="card-header">Активные услуги</div>
+                    <div class="card-wrapper flex-wrap">
+                        <c:forEach items="${userNewServices}" var="service">
+                            <c:set var="transport" value="${transportRepository.get(service.getIdTransport())}" />
+                            <div class="card">
+                                <div class="card-header">${transport.getBrand()} ${transport.getModel()}</div>
+                                <table class="card-contents">
+                                    <tr>
+                                        <td>Идентификатор</td>
+                                        <td>${service.getId()}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Категория услуги</td>
+                                        <td>${serviceCategoryRepository.get(service.getIdServiceCategory()).getCaption()}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Обслуживаемый транспорт</td>
+                                        <td>
+                                            ${transport.getBrand()} ${transport.getModel()}, ${transport.getReleaseYear()}, ${fn:substring(transport.getRegNumber(), 0, 6)}<sup>${fn:substring(transport.getRegNumber(), 6, -1)}</sup>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Исполнитель</td>
+                                        <td>1жопа</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Дата заявки</td>
+                                        <td>Ковёр-самолёт</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Описание</td>
+                                        <td>бабаб</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </c:forEach>
+                    </div>
+                </div>
+            </c:if>
+            <c:if test="${userClosedServices.size() > 0}">
+                <div class="card big">
+                    <div class="card-header">Выполненные услуги</div>
                     <div class="card-wrapper flex-wrap">
                         <div class="card">
                             <div class="card-header">14881337228332</div>
@@ -173,79 +260,9 @@
                                 </tr>
                             </table>
                         </div>
-                        <div class="vertical-centerer-wrapper">
-                            <a class="big-blue-button add-service-icon" href="/service/add"><span>Новая
-                                    услуга</span></a>
-                        </div>
                     </div>
                 </div>
-                <c:if test="${userActiveServices.size() > 0}">
-                    <div class="card big">
-                        <div class="card-header">Активные услуги</div>
-                        <div class="card-wrapper flex-wrap">
-                            <div class="card">
-                                <div class="card-header">14881337228332</div>
-                                <table class="card-contents">
-                                    <tr>
-                                        <td>Идентификатор</td>
-                                        <td>1</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Категория услуги</td>
-                                        <td>14881337228332</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Обслуживаемый транспорт</td>
-                                        <td>1</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Исполнитель</td>
-                                        <td>1жопа</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Дата заявки</td>
-                                        <td>Ковёр-самолёт</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Описание</td>
-                                        <td>бабаб</td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <c:if test="${userClosedServices.size() > 0}">
-                        <div class="card big">
-                            <div class="card-header">Выполненные услуги</div>
-                            <div class="card-wrapper flex-wrap">
-                                <div class="card">
-                                    <div class="card-header">14881337228332</div>
-                                    <table class="card-contents">
-                                        <tr>
-                                            <td>Идентификатор</td>
-                                            <td>1</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Категория услуги</td>
-                                            <td>14881337228332</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Обслуживаемый транспорт</td>
-                                            <td>1</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Дата заявки</td>
-                                            <td>Ковёр-самолёт</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Описание</td>
-                                            <td>бабаб</td>
-                                        </tr>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </c:if>
+            </c:if>
         </div>
     </div>
 </body>

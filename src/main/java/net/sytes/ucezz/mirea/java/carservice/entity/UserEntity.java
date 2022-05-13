@@ -2,6 +2,8 @@ package net.sytes.ucezz.mirea.java.carservice.entity;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -56,6 +58,16 @@ public class UserEntity {
         return birthDate;
     }
 
+    public String getBirthDateHumanReadable() throws ParseException {
+        return new SimpleDateFormat("d MMM yyyy")
+                .format(new SimpleDateFormat("yyyy-MM-dd").parse(birthDate));
+    }
+
+    public int getBirthYear() throws ParseException {
+        return Integer.parseInt(new SimpleDateFormat("yyyy")
+                .format(new SimpleDateFormat("yyyy-MM-dd").parse(birthDate)));
+    }
+
     public String getFirstName() {
         return firstName;
     }
@@ -82,6 +94,15 @@ public class UserEntity {
 
     public String getUsername() {
         return username;
+    }
+
+    public String getSummary() throws ParseException {
+        if (middleName.length() == 0) {
+            return String.format("%s %c. %d г. р.", lastName, firstName.charAt(0), getBirthYear());
+        } else {
+            return String.format("%s %c. %c. %d г. р.", lastName, firstName.charAt(0), middleName.charAt(0),
+                    getBirthYear());
+        }
     }
 
     public UserEntity setBirthDate(String birthDate) {

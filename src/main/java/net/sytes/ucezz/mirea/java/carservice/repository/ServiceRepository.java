@@ -2,6 +2,9 @@ package net.sytes.ucezz.mirea.java.carservice.repository;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -46,6 +49,18 @@ public interface ServiceRepository extends CrudRepository<ServiceEntity, Long> {
     @Query(value = "select * from t_service where t_service.id_manager = ?1 and len(t_service.completion) > 0", nativeQuery = true)
     List<ServiceEntity> getManagerClosedServices(int idManager);
 
-    @Query(value = "insert into t_service (id_service_category, id_transport, description, creation) values (?1, ?2, ?3, ?4); select '';", nativeQuery = true)
+    @Modifying
+    @Transactional
+    @Query(value = "insert into t_service (id_service_category, id_transport, description, creation) values (?1, ?2, ?3, ?4)", nativeQuery = true)
     void add(int idServiceCategory, int idTransport, String description, String creation);
+
+    @Modifying
+    @Transactional
+    @Query(value = "update t_service set id_manager = ?1 where id_service = ?2", nativeQuery = true)
+    void setManager(int idManager, int idService);
+
+    @Modifying
+    @Transactional
+    @Query(value = "update t_service set completion = ?1 where id_service = ?2", nativeQuery = true)
+    void setCompleted(String completion, int idService);
 }

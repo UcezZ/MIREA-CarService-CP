@@ -2,6 +2,9 @@ package net.sytes.ucezz.mirea.java.carservice.repository;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -19,7 +22,9 @@ public interface UserRepository extends CrudRepository<UserEntity, Long> {
     @Query(value = "select * from t_user", nativeQuery = true)
     List<UserEntity> getAll();
 
-    @Query(value = "insert into t_user (is_manager, last_name, first_name, middle_name, username, password_hash_string, birth_date) values ('false', ?1, ?2, ?3, ?4, ?5, ?6); select '';", nativeQuery = true)
+    @Modifying
+    @Transactional
+    @Query(value = "insert into t_user (is_manager, last_name, first_name, middle_name, username, password_hash_string, birth_date) values ('false', ?1, ?2, ?3, ?4, ?5, ?6)", nativeQuery = true)
     void register(String lastName, String firstName, String middleName, String username,
             String passwordHashString, String birthDate);
 }

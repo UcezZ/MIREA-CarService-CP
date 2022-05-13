@@ -24,7 +24,7 @@
         <c:if test="${errorCode == 1}">
             <div class="card-wrapper error">
                 <div class="card">
-                    <div class="card-header">Ошибка</div>
+                    <div class="card-header">Ошибка управления</div>
                     <div class="card-contents">
                         <span>Не удалось выполнить последнее действие!</span>
                         <br>

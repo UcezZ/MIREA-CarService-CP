@@ -6,12 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.context.request.WebRequest;
 
-import net.sytes.ucezz.mirea.java.carservice.entity.ServiceCategoryEntity;
-import net.sytes.ucezz.mirea.java.carservice.entity.ServiceEntity;
-import net.sytes.ucezz.mirea.java.carservice.entity.TransportEntity;
 import net.sytes.ucezz.mirea.java.carservice.entity.UserEntity;
 import net.sytes.ucezz.mirea.java.carservice.repository.ServiceCategoryRepository;
 import net.sytes.ucezz.mirea.java.carservice.repository.ServiceRepository;

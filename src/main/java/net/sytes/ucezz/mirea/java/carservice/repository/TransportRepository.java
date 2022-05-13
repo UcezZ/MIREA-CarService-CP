@@ -2,6 +2,9 @@ package net.sytes.ucezz.mirea.java.carservice.repository;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -28,6 +31,8 @@ public interface TransportRepository extends CrudRepository<TransportEntity, Lon
     @Query(value = "select count(*) from t_transport where id_user = ?1", nativeQuery = true)
     int getCountByUserId(int id);
 
-    @Query(value = "insert into t_transport (id_transport_type, id_user, brand, model, reg_number, release_year) values (?1, ?2, ?3, ?4, ?5, ?6); select '';", nativeQuery = true)
+    @Modifying
+    @Transactional
+    @Query(value = "insert into t_transport (id_transport_type, id_user, brand, model, reg_number, release_year) values (?1, ?2, ?3, ?4, ?5, ?6)", nativeQuery = true)
     void add(int idTransportType, int idUser, String brand, String model, String regNumber, int releaseYear);
 }

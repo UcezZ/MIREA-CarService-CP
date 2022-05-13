@@ -11,11 +11,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=0.75">
     <link rel="stylesheet" type="text/css" href="${contextPath}/resources/fonts/productsans.css">
     <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/tobeimplemented.css">
 </head>
 
 <body>
     <%@ include file="header.jsp" %>
     <div class="main">
-        <p></p>
     </div>
 </body>

@@ -16,6 +16,7 @@
     <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/card-state.css">
     <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/bigbluebutton.css">
     <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/big-card-wrapper.css">
+    <link rel="icon" href="${contextPath}/resources/media/icons/favicon.ico" type="image/icon">
 </head>
 
 <body>

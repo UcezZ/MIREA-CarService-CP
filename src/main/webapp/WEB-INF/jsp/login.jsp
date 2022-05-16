@@ -14,6 +14,7 @@
     <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/card.css">
     <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/form.css">
     <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/card-state.css">
+    <link rel="icon" href="${contextPath}/resources/media/icons/favicon.ico" type="image/icon">
 </head>
 
 <body>

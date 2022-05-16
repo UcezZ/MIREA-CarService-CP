@@ -12,6 +12,7 @@
     <link rel="stylesheet" type="text/css" href="${contextPath}/resources/fonts/productsans.css">
     <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/styles.css">
     <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/tobeimplemented.css">
+    <link rel="icon" href="${contextPath}/resources/media/icons/favicon.ico" type="image/icon">
 </head>
 
 <body>
